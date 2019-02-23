@@ -27,6 +27,8 @@
         android:autoSizeTextType="uniform"
         android:text="Lunch buddies app is all about inviting your friends on Lunch. All you have to decide a place and budget for the lunch and post details in the lunch buddies. Those who are intersted will send a Invitation to person who posted the post and the reciever can accept or reject the request
         of other users. And if anybody have a Query regarding the event can ask question who posted the event"
+        android:textAlignment="viewStart"
+        android:textAllCaps="true"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
