@@ -38,7 +38,7 @@ public class sendernotification extends AppCompatActivity {
         budget = bundle.getDouble("BUDGET");
         user_status = bundle.getString("INVITATIONSTATUS");
 
-        invitation_status.setText("YOU " + user_status + "ED THE INVITATION");
+        invitation_status.setText(firstname+" "+lastname +" "+ user_status + "ED THE INVITATION");
         reciever_budget.setText(budget + "");
         sender_numberofperson.setText(numberofperson + "");
         fn.setText(firstname);

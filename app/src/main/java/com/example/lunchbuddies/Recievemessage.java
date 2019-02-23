@@ -260,7 +260,7 @@ public class Recievemessage extends AppCompatActivity {
 
     private class MyTask extends AsyncTask<Void, Void, Void> {
         int sender_id, post_id, reciever_id;
-        String firstname, lastname, message, cusinetype, startdate, enddate, invitationStatus;
+        String firstname, lastname, message, cusinetype, startdate, enddate, invitationStatus,contactNumber;
         int numberofperson;
 
 
@@ -391,6 +391,7 @@ public class Recievemessage extends AppCompatActivity {
                                         enddate = senderobject.getString("ENDTIME");
                                         budget = senderobject.getDouble("BUDGET");
                                         numberofperson = senderobject.getInt("NUMBEROFPERSON");
+                                        contactNumber=senderobject.getString("CONTACTNUMBER");
 
                                         post_id = senderobject.getInt("POST_ID");
                                         //  tr3 = new TableRow(getApplicationContext());
@@ -416,6 +417,9 @@ public class Recievemessage extends AppCompatActivity {
                                                 bridge.putExtra("STARTDATE", startdate);
                                                 bridge.putExtra("ENDDATE", enddate);
                                                 bridge.putExtra("MESSAGE", message);
+                                                bridge.putExtra("CONTACTNUMBER",contactNumber);
+
+
 
                                                 startActivity(bridge);
                                             }
