@@ -18,7 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Recievemessage"></activity>
+        <activity android:name=".RemoveList"></activity>
+        <activity android:name=".Message" />
+        <activity android:name=".Recievemessage" />
         <activity android:name=".MainActivity" />
         <activity android:name=".sendernotification" />
         <activity android:name=".Imageupload" />

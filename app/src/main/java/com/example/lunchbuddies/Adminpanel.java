@@ -63,7 +63,7 @@ public class Adminpanel extends AppCompatActivity {
         removeevent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent bridge=new Intent(getApplicationContext(),RemoveEvent.class);
+                Intent bridge=new Intent(getApplicationContext(),RemoveList.class);
                 startActivity(bridge);
             }
         });
