@@ -240,7 +240,7 @@ public class Listofpost extends AppCompatActivity {
                                 }
                             });
 
-//
+
 
 
                         }
