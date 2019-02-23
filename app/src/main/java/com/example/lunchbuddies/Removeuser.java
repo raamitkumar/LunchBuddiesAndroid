@@ -27,23 +27,21 @@ import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class RemoveList extends AppCompatActivity {
-
+public class Removeuser extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_remove_list);
+        setContentView(R.layout.activity_removeuser);
         new MyTask().execute();
     }
-int eventId;
-
+int userId=0;
     private class MyTask extends AsyncTask<Void, Void, Void> {
-        int event_id;
+        int fulluid;
         String firstname;
-        TableLayout tblayout;
+        TableLayout tablelayout;
         TableRow tr1, tr2;
-        TextView thePlace, cusineType, startTime,tx1;
+        TextView email, firstName, lastName,tx1;
         Calendar c = Calendar.getInstance();
         SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         String startdatetime = dateformat.format(c.getTime());
@@ -56,13 +54,13 @@ int eventId;
             DataInfo datainfo = DataInfo.getInstance();
             System.out.println(datainfo.getUser_id());
 
-            tblayout=findViewById(R.id.tbLayout);
 
+            tablelayout= findViewById(R.id.tb);
             URL url = null;
 
             try {
 
-                url = new URL("http://192.168.0.107:8888/lunchbuddies/mobile/application/viewEvent");
+                url = new URL("http://192.168.0.107:8888/lunchbuddies/mobile/application/profile");
 
                 HttpURLConnection client = null;
 
@@ -91,60 +89,60 @@ int eventId;
                 System.out.println(response.toString());
                 final JSONObject obj = new JSONObject(response.toString());
 
-                final JSONArray postarray = obj.getJSONArray("EVENTDATA");
+                final JSONArray postarray = obj.getJSONArray("USERDATA");
                 runOnUiThread(new Runnable() {
                     @SuppressLint("ResourceAsColor")
                     @Override
                     public void run() {
 
-                        tblayout.removeAllViews();
+                        tablelayout.removeAllViews();
 
                         tr1 = new TableRow(getApplicationContext());
 
                         tr2=new TableRow(getApplicationContext());
-                        thePlace = new TextView(getApplicationContext());
-                        thePlace.setText(" Place ");
-                        thePlace.setTextSize(20);
-                       // email.setAlpha(1);
-                        thePlace.setTextColor(Color.BLACK);
+                        email = new TextView(getApplicationContext());
+                        email.setText(" Email ");
+                        email.setTextSize(15);
+                        email.setAlpha(1);
+                        email.setTextColor(Color.BLACK);
                         //email.setTextColor(R.color.colorPrimaryDark);
-                        tr1.addView(thePlace);
+                        tr1.addView(email);
 
 
-                        cusineType = new TextView(getApplicationContext());
-                        cusineType.setText(" Event Name ");
-                        //firstName.setAlpha(1);
-                        cusineType.setTextSize(20);
+                        firstName = new TextView(getApplicationContext());
+                        firstName.setText(" FirstName ");
+                        firstName.setAlpha(1);
+                        firstName.setTextSize(15);
 
-                        cusineType.setTextColor(Color.BLACK);
+                        firstName.setTextColor(Color.BLACK);
                         //  firstName.setTextColor(Color.Black);
 
-                        tr1.addView(cusineType);
+                        tr1.addView(firstName);
 
                         tx1=new TextView(getApplicationContext());
 
 
-                        startTime = new TextView(getApplicationContext());
-                        startTime.setText(" StartTime ");
-                        startTime.setTextSize(20);
-                        //lastName.setAlpha(1);
-                        startTime.setTextColor(Color.BLACK
+                        lastName = new TextView(getApplicationContext());
+                        lastName.setText(" LastName ");
+                        lastName.setTextSize(15);
+                        lastName.setAlpha(1);
+                        lastName.setTextColor(Color.BLACK
                         );
-                        cusineType.setTypeface(null, Typeface.BOLD_ITALIC);
+                        firstName.setTypeface(null, Typeface.BOLD_ITALIC);
 
-                        thePlace.setTypeface(null,Typeface.BOLD_ITALIC);
-                        startTime.setTypeface(null, Typeface.BOLD_ITALIC);
+                        email.setTypeface(null,Typeface.BOLD_ITALIC);
+                        lastName.setTypeface(null, Typeface.BOLD_ITALIC);
 
 
-                        tr1.addView(startTime);
+                        tr1.addView(lastName);
 
                         tr2.addView(tx1);
-                        tblayout.addView(tr1);
+                        tablelayout.addView(tr1);
 
-                        tblayout.addView(tr2);
-                        String place = null, event_name = null, startdate = null, enddate;
+                        tablelayout.addView(tr2);
+                        String email_id = null, fn = null, ln = null, enddate;
                         int post_id = 0;
-                        int user_id;
+                        int user_id = 0;
                         int numberofperson;
                         double budget;
 
@@ -154,41 +152,40 @@ int eventId;
                         for (int i = 0; i < postarray.length(); i++) {
                             tr1 = new TableRow(getApplicationContext());
                             tr2 = new TableRow(getApplicationContext());
-                            thePlace = new TextView(getApplicationContext());
-                            cusineType = new TextView(getApplicationContext());
-                            startTime = new TextView(getApplicationContext());
+                            email = new TextView(getApplicationContext());
+                            firstName = new TextView(getApplicationContext());
+                            lastName = new TextView(getApplicationContext());
                             tx1=new TextView(getApplicationContext());
-                            startTime.setTextColor(Color.BLACK);
+                            lastName.setTextColor(Color.BLACK);
 
-                            cusineType.setTextColor(Color.BLACK);
+                            firstName.setTextColor(Color.BLACK);
 
-                            thePlace.setTextColor(Color.BLACK);
+                            email.setTextColor(Color.BLACK);
                             try {
                                 arrayobj = postarray.getJSONObject(i);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
                             try {
-                                place = arrayobj.getString("EVENTPLACE");
+                                email_id = arrayobj.getString("EMAIL");
 
 
-                                thePlace.setTextSize(20);
-                                thePlace.setAlpha(1);
-                                cusineType.setTextSize(20);
-                                cusineType.setAlpha(1);
-                                startTime.setTextSize(20);
-                                startTime.setAlpha(0.99f);
+                                email.setTextSize(15);
+                                email.setAlpha(1);
+                                firstName.setTextSize(15);
+                                firstName.setAlpha(1);
+                                lastName.setTextSize(15);
+                                lastName.setAlpha(0.99f);
 
-                                thePlace.setText(place + "  ");
-                                tr1.addView(thePlace);
-                                event_name = arrayobj.getString("EVENTNAME");
-                                cusineType.setText(event_name + "  ");
-                                tr1.addView(cusineType);
-                                startdate = arrayobj.getString("STARTTIME");
-                                startTime.setText(startdate + "  ");
-                                tr1.addView(startTime);
-
-                                event_id=arrayobj.getInt("EVENTID");
+                                email.setText(email_id + "  ");
+                                tr1.addView(email);
+                                fn = arrayobj.getString("FIRSTNAME");
+                                firstName.setText(fn + "  ");
+                                tr1.addView(firstName);
+                                ln = arrayobj.getString("LASTNAME");
+                                lastName.setText(ln + "  ");
+                                tr1.addView(lastName);
+                                user_id = arrayobj.getInt("USER_ID");
                                 tr2.addView(tx1);
 
                             } catch (JSONException e) {
@@ -199,18 +196,21 @@ int eventId;
                             tr1.setAlpha(1);
                             tr2.setAlpha(1);
 
-                            tblayout.addView(tr1);
-                            tblayout.addView(tr2);
+                            tablelayout.addView(tr1);
+                            tablelayout.addView(tr2);
                             //tablelayout.addView(tr2);
 
-                            final int finalPost_id = post_id;
+
+                            final int finalUser_id = user_id;
                             tr1.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
-                                    Intent bridge = new Intent(getApplicationContext(), RemoveList.class);
 
-                                    eventId=event_id;
                                     new MyTask2().execute();
+                                    userId= finalUser_id;
+                                    Intent bridge = new Intent(getApplicationContext(), Removepost.class);
+                                    Toast.makeText(getApplicationContext(),"USER IS SUCCESSFULLY REMOVED",Toast.LENGTH_LONG).show();
+                                    bridge.putExtra("user_id", finalUser_id);
                                     startActivity(bridge);
                                 }
                             });
@@ -247,6 +247,7 @@ int eventId;
 
     }
 
+
     private class MyTask2 extends AsyncTask<Void, Void, Void> {
         int fulluid;
         String user_status;
@@ -280,7 +281,7 @@ int eventId;
 
             try {
 
-                url = new URL("http://192.168.0.107:8888/lunchbuddies/mobile/application/RemoveEvent&" +eventId );
+                url = new URL("http://192.168.0.107:8888/lunchbuddies/mobile/application/removeuser&" +userId );
 
                 HttpURLConnection client = null;
 
@@ -338,13 +339,13 @@ int eventId;
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
 
-            if(user_status.equals("STATUS")){
+            if(user_status.equals("OK")){
 
                 Intent brdige=new Intent(getApplicationContext(),Adminpanel.class);
-                Toast.makeText(getApplicationContext(),"Event is Successfully remove",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"POST is Successfully remove",Toast.LENGTH_SHORT).show();
                 startActivity(brdige);
             }else{
-                Toast.makeText(getApplicationContext(),"Please enter correct details",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Please select  correct Item From List",Toast.LENGTH_SHORT).show();
 
 
             }
@@ -356,3 +357,5 @@ int eventId;
 
 
 }
+
+

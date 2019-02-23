@@ -27,21 +27,19 @@ import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class RemoveList extends AppCompatActivity {
-
-
+public class Removepost extends AppCompatActivity {
+int postId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_remove_list);
+        setContentView(R.layout.activity_removepost);
         new MyTask().execute();
     }
-int eventId;
 
     private class MyTask extends AsyncTask<Void, Void, Void> {
-        int event_id;
+        int fulluid;
         String firstname;
-        TableLayout tblayout;
+        TableLayout tablelayout;
         TableRow tr1, tr2;
         TextView thePlace, cusineType, startTime,tx1;
         Calendar c = Calendar.getInstance();
@@ -56,13 +54,13 @@ int eventId;
             DataInfo datainfo = DataInfo.getInstance();
             System.out.println(datainfo.getUser_id());
 
-            tblayout=findViewById(R.id.tbLayout);
 
+           tablelayout= findViewById(R.id.tblay);
             URL url = null;
 
             try {
 
-                url = new URL("http://192.168.0.107:8888/lunchbuddies/mobile/application/viewEvent");
+                url = new URL("http://192.168.0.107:8888/lunchbuddies/mobile/application/viewpost");
 
                 HttpURLConnection client = null;
 
@@ -91,13 +89,13 @@ int eventId;
                 System.out.println(response.toString());
                 final JSONObject obj = new JSONObject(response.toString());
 
-                final JSONArray postarray = obj.getJSONArray("EVENTDATA");
+                final JSONArray postarray = obj.getJSONArray("POSTDATA");
                 runOnUiThread(new Runnable() {
                     @SuppressLint("ResourceAsColor")
                     @Override
                     public void run() {
 
-                        tblayout.removeAllViews();
+                        tablelayout.removeAllViews();
 
                         tr1 = new TableRow(getApplicationContext());
 
@@ -105,15 +103,15 @@ int eventId;
                         thePlace = new TextView(getApplicationContext());
                         thePlace.setText(" Place ");
                         thePlace.setTextSize(20);
-                       // email.setAlpha(1);
+                        thePlace.setAlpha(1);
                         thePlace.setTextColor(Color.BLACK);
                         //email.setTextColor(R.color.colorPrimaryDark);
                         tr1.addView(thePlace);
 
 
                         cusineType = new TextView(getApplicationContext());
-                        cusineType.setText(" Event Name ");
-                        //firstName.setAlpha(1);
+                        cusineType.setText(" CusineType ");
+                        cusineType.setAlpha(1);
                         cusineType.setTextSize(20);
 
                         cusineType.setTextColor(Color.BLACK);
@@ -127,7 +125,7 @@ int eventId;
                         startTime = new TextView(getApplicationContext());
                         startTime.setText(" StartTime ");
                         startTime.setTextSize(20);
-                        //lastName.setAlpha(1);
+                        startTime.setAlpha(1);
                         startTime.setTextColor(Color.BLACK
                         );
                         cusineType.setTypeface(null, Typeface.BOLD_ITALIC);
@@ -139,10 +137,10 @@ int eventId;
                         tr1.addView(startTime);
 
                         tr2.addView(tx1);
-                        tblayout.addView(tr1);
+                        tablelayout.addView(tr1);
 
-                        tblayout.addView(tr2);
-                        String place = null, event_name = null, startdate = null, enddate;
+                        tablelayout.addView(tr2);
+                        String place = null, cusinetype = null, startdate = null, enddate;
                         int post_id = 0;
                         int user_id;
                         int numberofperson;
@@ -169,7 +167,7 @@ int eventId;
                                 e.printStackTrace();
                             }
                             try {
-                                place = arrayobj.getString("EVENTPLACE");
+                                place = arrayobj.getString("PLACE");
 
 
                                 thePlace.setTextSize(20);
@@ -181,14 +179,17 @@ int eventId;
 
                                 thePlace.setText(place + "  ");
                                 tr1.addView(thePlace);
-                                event_name = arrayobj.getString("EVENTNAME");
-                                cusineType.setText(event_name + "  ");
+                                cusinetype = arrayobj.getString("CUSINETYPE");
+                                cusineType.setText(cusinetype + "  ");
                                 tr1.addView(cusineType);
                                 startdate = arrayobj.getString("STARTTIME");
                                 startTime.setText(startdate + "  ");
                                 tr1.addView(startTime);
-
-                                event_id=arrayobj.getInt("EVENTID");
+                                enddate = arrayobj.getString("ENDTIME");
+                                numberofperson = arrayobj.getInt("NUMBEROFPERSON");
+                                user_id = arrayobj.getInt("USER_ID");
+                                post_id = arrayobj.getInt("POST_ID");
+                                budget = arrayobj.getDouble("BUDGET");
                                 tr2.addView(tx1);
 
                             } catch (JSONException e) {
@@ -199,18 +200,21 @@ int eventId;
                             tr1.setAlpha(1);
                             tr2.setAlpha(1);
 
-                            tblayout.addView(tr1);
-                            tblayout.addView(tr2);
+                            tablelayout.addView(tr1);
+                            tablelayout.addView(tr2);
                             //tablelayout.addView(tr2);
 
                             final int finalPost_id = post_id;
+                            final int finalPost_id1 = post_id;
                             tr1.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
-                                    Intent bridge = new Intent(getApplicationContext(), RemoveList.class);
 
-                                    eventId=event_id;
                                     new MyTask2().execute();
+                                    postId= finalPost_id1;
+                                    Intent bridge = new Intent(getApplicationContext(), Removepost.class);
+                                    Toast.makeText(getApplicationContext(),"YOUR POST IS SUCCESSFULLY REMOVED",Toast.LENGTH_LONG).show();
+                                    bridge.putExtra("postid", finalPost_id);
                                     startActivity(bridge);
                                 }
                             });
@@ -247,6 +251,7 @@ int eventId;
 
     }
 
+
     private class MyTask2 extends AsyncTask<Void, Void, Void> {
         int fulluid;
         String user_status;
@@ -280,7 +285,7 @@ int eventId;
 
             try {
 
-                url = new URL("http://192.168.0.107:8888/lunchbuddies/mobile/application/RemoveEvent&" +eventId );
+                url = new URL("http://192.168.0.107:8888/lunchbuddies/mobile/application/removepost&" +postId );
 
                 HttpURLConnection client = null;
 
@@ -338,13 +343,13 @@ int eventId;
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
 
-            if(user_status.equals("STATUS")){
+            if(user_status.equals("OK")){
 
                 Intent brdige=new Intent(getApplicationContext(),Adminpanel.class);
-                Toast.makeText(getApplicationContext(),"Event is Successfully remove",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"POST is Successfully remove",Toast.LENGTH_SHORT).show();
                 startActivity(brdige);
             }else{
-                Toast.makeText(getApplicationContext(),"Please enter correct details",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Please select  correct Item From List",Toast.LENGTH_SHORT).show();
 
 
             }
@@ -356,3 +361,5 @@ int eventId;
 
 
 }
+
+

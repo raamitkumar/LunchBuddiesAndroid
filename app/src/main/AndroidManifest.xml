@@ -18,7 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".RemoveList"></activity>
+        <activity android:name=".Removeuser"></activity>
+        <activity android:name=".Removepost" />
+        <activity android:name=".RemoveList" />
         <activity android:name=".Message" />
         <activity android:name=".Recievemessage" />
         <activity android:name=".MainActivity" />

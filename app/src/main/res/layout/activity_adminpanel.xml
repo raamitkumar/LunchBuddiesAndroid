@@ -10,37 +10,56 @@
 
 
     <Button
+        android:id="@+id/removeuser2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="192dp"
+        android:layout_marginEnd="72dp"
+        android:background="@android:color/transparent"
+
+        android:text="REMOVE USER"
+        android:textColor="#F96C14"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
         android:id="@+id/addevent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="192dp"
         android:layout_marginEnd="8dp"
-        android:text="ADD EVENT"
-        android:textColor="#F96C14"
-
-        android:textStyle="bold"
-        android:textSize="20sp"
         android:background="@android:color/transparent"
-        app:layout_constraintEnd_toStartOf="@+id/removeuser"
+        android:text="ADD EVENT"
+
+        android:textColor="#F96C14"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/removepost"
         app:layout_constraintHorizontal_bias="0.054"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/removeuser"
+        android:id="@+id/removepost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:layout_marginEnd="72dp"
-        android:text="REMOVE USER"
-
-        android:textColor="#F96C14"
-        android:textStyle="bold"
-        android:textSize="20sp"
+        android:layout_marginTop="116dp"
+        android:layout_marginEnd="136dp"
         android:background="@android:color/transparent"
+
+        android:text="REMOVE POST"
+        android:textColor="#F96C14"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.832"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.001" />
 
     <Button
         android:id="@+id/removeevent"
@@ -49,12 +68,12 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="8dp"
-        android:text="REMOVE EVENT"
-        android:textColor="#F96C14"
-
-        android:textStyle="bold"
-        android:textSize="20sp"
         android:background="@android:color/transparent"
+        android:text="REMOVE EVENT"
+
+        android:textColor="#F96C14"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/adduser"
         app:layout_constraintHorizontal_bias="0.088"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,28 +83,15 @@
         android:id="@+id/adduser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="72dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="80dp"
+        android:background="@android:color/transparent"
+
         android:text="ADD USER"
         android:textColor="#F96C14"
-
-        android:textStyle="bold"
         android:textSize="20sp"
-        android:background="@android:color/transparent"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/removeuser" />
+        app:layout_constraintTop_toBottomOf="@+id/removeuser2" />
 
-    <EditText
-        android:id="@+id/remove"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        android:hint="ADD EMAIL TO REMOVE USER"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.414"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.604" />
 </android.support.constraint.ConstraintLayout>

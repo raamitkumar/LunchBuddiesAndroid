@@ -62,6 +62,13 @@ public class Registration extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "YOUR PASSWORD DOESNOT MATCH  ", Toast.LENGTH_SHORT).show();
 
                 }
+                if(useremail.contains("@")){
+
+                }else{
+                    emailID.setText("");
+
+                    Toast.makeText(getApplicationContext(),"YOUR EMAIL SHOULD CONTAIN @ SYMBOL",Toast.LENGTH_LONG).show();
+                }
             }
         });
 

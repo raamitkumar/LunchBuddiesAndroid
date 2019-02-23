@@ -22,8 +22,7 @@ import java.net.URL;
 
 public class Adminpanel extends AppCompatActivity {
 
-    Button add,removeuser,removeevent,adduser;
-    EditText remove_user;
+    Button add,removeuser,removeevent,adduser,postRemove;
 
     String removeUser;
     @Override
@@ -32,10 +31,18 @@ public class Adminpanel extends AppCompatActivity {
         setContentView(R.layout.activity_adminpanel);
 
         add=findViewById(R.id.addevent);
-        removeuser=findViewById(R.id.removeuser);
+        removeuser=findViewById(R.id.removeuser2);
         removeevent=findViewById(R.id.removeevent);
         adduser=findViewById(R.id.adduser);
-        remove_user=findViewById(R.id.remove);
+
+        postRemove=findViewById(R.id.removepost);
+        postRemove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent bridge=new Intent(getApplicationContext(),Removepost.class);
+                startActivity(bridge);
+            }
+        });
         Toast.makeText(getApplicationContext(),"Please Select one of the following mentioned button",Toast.LENGTH_LONG).show();
         adduser.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,8 +62,8 @@ public class Adminpanel extends AppCompatActivity {
         removeuser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                removeUser=remove_user.getText().toString();
-                new MyTask().execute();
+               Intent bridge=new Intent(getApplicationContext(),Removeuser.class);
+               startActivity(bridge);
             }
         });
 

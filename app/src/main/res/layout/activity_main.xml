@@ -51,7 +51,8 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:background="@android:color/transparent"
-        android:text="SIGN IN" android:textColor="#F96C14"
+        android:text="SIGN IN"
+        android:textColor="#F96C14"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -59,7 +60,7 @@
         app:layout_constraintHorizontal_bias="0.226"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/send_message"
-        app:layout_constraintVertical_bias="0.201" />
+        app:layout_constraintVertical_bias="0.19" />
 
     <Button
         android:id="@+id/registration"
@@ -68,7 +69,8 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:background="@android:color/transparent"
-        android:text="signup" android:textColor="#F96C14"
+        android:text="signup"
+        android:textColor="#F96C14"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -76,22 +78,7 @@
         app:layout_constraintHorizontal_bias="0.609"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.551" />
-
-    <Button
-        android:id="@+id/adminlogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:text="admin" android:textColor="#F96C14"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.452"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.679" />
+        app:layout_constraintVertical_bias="0.53" />
 
 
 </android.support.constraint.ConstraintLayout>

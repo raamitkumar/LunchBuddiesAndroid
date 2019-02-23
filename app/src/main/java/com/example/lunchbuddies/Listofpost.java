@@ -131,7 +131,7 @@ public class Listofpost extends AppCompatActivity {
                         thePlace.setTextSize(20);
                         thePlace.setAlpha(1);
                         thePlace.setTextColor(Color.BLACK);
-                        //thePlace.setTextColor(R.color.colorPrimaryDark);
+                        //email.setTextColor(R.color.colorPrimaryDark);
                         tr1.addView(thePlace);
 
 
@@ -141,7 +141,7 @@ public class Listofpost extends AppCompatActivity {
                         cusineType.setTextSize(20);
 
                         cusineType.setTextColor(Color.BLACK);
-                      //  cusineType.setTextColor(Color.Black);
+                      //  firstName.setTextColor(Color.Black);
 
                         tr1.addView(cusineType);
 
@@ -228,7 +228,7 @@ public class Listofpost extends AppCompatActivity {
 
                             tbLayout.addView(tr1);
                             tbLayout.addView(tr2);
-                            //tbLayout.addView(tr2);
+                            //tablelayout.addView(tr2);
 
                             final int finalPost_id = post_id;
                             tr1.setOnClickListener(new View.OnClickListener() {

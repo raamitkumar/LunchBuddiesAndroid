@@ -24,7 +24,7 @@ import java.net.URL;
 public class MainActivity extends AppCompatActivity {
 
     EditText userEmail,userPassword;
-    Button userLogin,singUp,admin;
+    Button userLogin,singUp;
     String email,password;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +33,6 @@ public class MainActivity extends AppCompatActivity {
 
         Toast.makeText(getApplicationContext(), "PLEASE ENTER AND PASSWORD FOR LOGIN", Toast.LENGTH_LONG).show();
 
-
-        admin = findViewById(R.id.adminlogin);
 
         userEmail = findViewById(R.id.email);
         userPassword = findViewById(R.id.send_message);
@@ -61,24 +59,6 @@ public class MainActivity extends AppCompatActivity {
                // Toast.makeText(getApplicationContext(), "You are successfully login", Toast.LENGTH_SHORT).show();
             }
         });
-        userLogin.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-
-                email = userEmail.getText().toString();
-                password = userPassword.getText().toString();
-                Intent bridge = new Intent(getApplicationContext(), Adminpanel.class);
-                startActivity(bridge);
-                new MyTask().execute();
-
-               // Toast.makeText(getApplicationContext(), "You are successfully login", Toast.LENGTH_SHORT).show();
-
-                return false;
-
-            }
-        });
-
-
     }
 
 
@@ -177,8 +157,9 @@ public class MainActivity extends AppCompatActivity {
                 super.onPostExecute(result);
 
 
-                System.out.println("hyyyyyyyyyyyyyyyyyyyyyyyyyy"+getUser_status());
-                if(userEmail.equals("RAAMITKUMAR786@GMAIL.COM")) {
+                System.out.println("hyyyyyyyyyyyyyyyyyyyyyyyyyy"+getUser_status()+email);
+
+                if(email.equals("RAAMITKUMAR786@GMAIL.COM")) {
 
                     Intent bridge = new Intent(getApplicationContext(), Adminpanel.class);
                     startActivity(bridge);
