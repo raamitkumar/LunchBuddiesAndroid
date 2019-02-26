@@ -20,10 +20,8 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
-import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
 public class Singlepost extends AppCompatActivity {
     int post_id = 0;
@@ -39,12 +37,12 @@ public class Singlepost extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         post_id = bundle.getInt("postid");
 
-        theplace = findViewById(R.id.place);
-        thecusine = findViewById(R.id.cusinetype);
-        starttime = findViewById(R.id.starttime);
-        endtime = findViewById(R.id.end_time);
-        thenumberofperson = findViewById(R.id.numberofperson);
-        thebudget = findViewById(R.id.budget3);
+        theplace = findViewById(R.id.place_editText);
+        thecusine = findViewById(R.id.cusinetype_editText);
+        starttime = findViewById(R.id.starttime_editText);
+        endtime = findViewById(R.id.endtime_editText);
+        thenumberofperson = findViewById(R.id.numberofperson_editText);
+        thebudget = findViewById(R.id.budget3_editText);
         sendmessage=findViewById(R.id.sendmessage);
         sendmessage.setOnClickListener(new View.OnClickListener() {
             @Override

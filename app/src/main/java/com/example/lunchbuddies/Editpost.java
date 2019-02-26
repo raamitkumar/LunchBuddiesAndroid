@@ -5,10 +5,11 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -28,60 +29,28 @@ import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class Listofpost extends AppCompatActivity {
-
-    TableLayout tbLayout;
-    TableRow tr1, tr2;
-    TextView thePlace, cusineType, startTime,tx1;
-    Button post, myprofile,edit_post;
+public class Editpost extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_listofpost);
-        tbLayout = findViewById(R.id.tabellayout);
-        myprofile = findViewById(R.id.myprofile);
-        edit_post=findViewById(R.id.editpost);
+        setContentView(R.layout.activity_editpost);
         Toast.makeText(getApplicationContext(), "PLEASE SELECT OF THE ITEM OF LIST VIEW TO EDIT YOUR POST", Toast.LENGTH_LONG).show();
-
-        myprofile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent bridge = new Intent(getApplicationContext(), Myprofile.class);
-                startActivity(bridge);
-            }
-        });
-
-        post = findViewById(R.id.postadd);
-
-        post.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent bridge = new Intent(getApplicationContext(), Postadd.class);
-                startActivity(bridge);
-            }
-        });
-        edit_post.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent bridge=new Intent(getApplicationContext(),Editpost.class);
-                startActivity(bridge);
-            }
-        });
-
-
 
         new MyTask().execute();
     }
-
-
+   @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
     private class MyTask extends AsyncTask<Void, Void, Void> {
+       TextView thePlace, cusineType, startTime,tx1;
         int fulluid;
+        TableLayout tbLayout=findViewById(R.id.tblayoutpost);
+        TableRow tr1,tr2;
         String firstname;
         Calendar c = Calendar.getInstance();
         SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         String startdatetime = dateformat.format(c.getTime());
         String enddatetime = dateformat.format(c.getTime());
+
 
         @SuppressLint("WrongThread")
         @Override
@@ -95,7 +64,7 @@ public class Listofpost extends AppCompatActivity {
 
             try {
 
-                url = new URL("http://192.168.0.107:8888/lunchbuddies/mobile/application/viewpost");
+                url = new URL("http://192.168.0.107:8888/lunchbuddies/mobile/application/view_post&"+datainfo.getUser_id());
 
                 HttpURLConnection client = null;
 
@@ -149,7 +118,7 @@ public class Listofpost extends AppCompatActivity {
                         cusineType.setTextSize(20);
 
                         cusineType.setTextColor(Color.BLACK);
-                      //  firstName.setTextColor(Color.Black);
+                        //  firstName.setTextColor(Color.Black);
 
                         tr1.addView(cusineType);
 
@@ -162,7 +131,7 @@ public class Listofpost extends AppCompatActivity {
                         startTime.setAlpha(1);
                         startTime.setTextColor(Color.BLACK
                         );
-                       cusineType.setTypeface(null,Typeface.BOLD_ITALIC);
+                        cusineType.setTypeface(null, Typeface.BOLD_ITALIC);
 
                         thePlace.setTypeface(null,Typeface.BOLD_ITALIC);
                         startTime.setTypeface(null, Typeface.BOLD_ITALIC);
@@ -170,15 +139,18 @@ public class Listofpost extends AppCompatActivity {
 
                         tr1.addView(startTime);
 
-                        tr2.addView(tx1);
+                        //tr2.addView(tx1);
                         tbLayout.addView(tr1);
 
-                        tbLayout.addView(tr2);
-                        String place = null, cusinetype = null, startdate = null, enddate;
+                      //  tbLayout.addView(tr2);
+                        String place = null;
+                        String cusinetype = null;
+                        String startdate = null;
+                        String enddate =null;
                         int post_id = 0;
                         int user_id;
-                        int numberofperson;
-                        double budget;
+                         int numberofperson =0;
+                         double budget = 0;
 
 
                         JSONObject arrayobj = null;
@@ -224,6 +196,7 @@ public class Listofpost extends AppCompatActivity {
                                 user_id = arrayobj.getInt("USER_ID");
                                 post_id = arrayobj.getInt("POST_ID");
                                 budget = arrayobj.getDouble("BUDGET");
+
                                 tr2.addView(tx1);
 
                             } catch (JSONException e) {
@@ -239,11 +212,27 @@ public class Listofpost extends AppCompatActivity {
                             //tablelayout.addView(tr2);
 
                             final int finalPost_id = post_id;
+                            final String finalPlace = place;
+                            final String finalCusinetype = cusinetype;
+                            final int finalNumberofperson = numberofperson;
+                            final double finalBudget = budget;
+                            final String finalStartdate = startdate;
+                            final String finalEnddate = enddate;
+                            final int finalPost_id1 = post_id;
                             tr1.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
-                                    Intent bridge = new Intent(getApplicationContext(), Singlepost.class);
-                                    bridge.putExtra("postid", finalPost_id);
+                                    Intent bridge = new Intent(getApplicationContext(), SingleeditPost.class);
+                                    bridge.putExtra("postid", finalPost_id1);
+                                    System.out.println(finalPost_id1);
+                                    bridge.putExtra("PLACE", finalPlace);
+                                    bridge.putExtra("CUSINETYPE", finalCusinetype);
+                                    bridge.putExtra("NUMBEROFPERSON", finalNumberofperson);
+                                    bridge.putExtra("BUDGET", finalBudget);
+                                    bridge.putExtra("STARTDATE", finalStartdate);
+                                    bridge.putExtra("ENDDATE", finalEnddate);
+
+                                    bridge.putExtra("POSTID", finalPost_id1);
                                     startActivity(bridge);
                                 }
                             });
@@ -279,5 +268,4 @@ public class Listofpost extends AppCompatActivity {
 
 
     }
-
 }

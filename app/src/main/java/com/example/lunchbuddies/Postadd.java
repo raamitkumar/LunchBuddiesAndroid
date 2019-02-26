@@ -32,14 +32,14 @@ public class Postadd extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_postadd);
 
-        place=findViewById(R.id.place);
+        place=findViewById(R.id.place_editText);
         cusine=findViewById(R.id.cusine);
         startdate=findViewById(R.id.startdate);
         enddate=findViewById(R.id.enddate);
-        numberofperson=findViewById(R.id.numberofperson);
+        numberofperson=findViewById(R.id.numberofperson_editText);
         budget=findViewById(R.id.budget);
         post=findViewById(R.id.post);
-        start_time=findViewById(R.id.starttime);
+        start_time=findViewById(R.id.starttime_editText);
         end_time=findViewById(R.id.endtime);
 
         Toast.makeText(getApplicationContext(),"PLEASE ENTER thE FOLlowing DETAILSTO POST ADD",Toast.LENGTH_LONG).show();

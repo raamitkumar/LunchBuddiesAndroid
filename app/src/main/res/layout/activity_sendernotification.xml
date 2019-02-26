@@ -72,7 +72,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/place"
+        android:id="@+id/place_editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -83,7 +83,7 @@
         android:textColor="@android:color/background_dark"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/cusinetype"
+        app:layout_constraintEnd_toStartOf="@+id/cusinetype_editText"
         app:layout_constraintHorizontal_bias="0.058"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/firstname" />
@@ -100,13 +100,13 @@
         android:textColor="@android:color/background_dark"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/cusinetype"
+        app:layout_constraintEnd_toStartOf="@+id/cusinetype_editText"
         app:layout_constraintHorizontal_bias="0.053"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/firstname" />
 
     <TextView
-        android:id="@+id/cusinetype"
+        android:id="@+id/cusinetype_editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="84dp"
@@ -132,7 +132,7 @@
         app:layout_constraintTop_toBottomOf="@+id/lastname" />
 
     <TextView
-        android:id="@+id/numberofperson"
+        android:id="@+id/numberofperson_editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -145,7 +145,7 @@
         app:layout_constraintEnd_toStartOf="@+id/endtime"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/place" />
+        app:layout_constraintTop_toBottomOf="@+id/place_editText" />
 
     <TextView
         android:id="@+id/numberofperson2"
@@ -161,10 +161,10 @@
         app:layout_constraintEnd_toStartOf="@+id/endtime"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/place" />
+        app:layout_constraintTop_toBottomOf="@+id/place_editText" />
 
     <TextView
-        android:id="@+id/starttime"
+        android:id="@+id/starttime_editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -187,7 +187,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cusinetype" />
+        app:layout_constraintTop_toBottomOf="@+id/cusinetype_editText" />
 
     <TextView
         android:id="@+id/endtime"
@@ -200,7 +200,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cusinetype" />
+        app:layout_constraintTop_toBottomOf="@+id/cusinetype_editText" />
 
     <TextView
         android:id="@+id/endtime2"
@@ -213,7 +213,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cusinetype" />
+        app:layout_constraintTop_toBottomOf="@+id/cusinetype_editText" />
 
     <TextView
         android:id="@+id/budget"
@@ -226,7 +226,7 @@
         android:textColor="@android:color/background_dark"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/starttime"
+        app:layout_constraintEnd_toStartOf="@+id/starttime_editText"
 
         app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
@@ -243,11 +243,11 @@
         android:textColor="@android:color/background_dark"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/starttime"
+        app:layout_constraintEnd_toStartOf="@+id/starttime_editText"
         app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
 
-        app:layout_constraintTop_toBottomOf="@+id/numberofperson" />
+        app:layout_constraintTop_toBottomOf="@+id/numberofperson_editText" />
 
     <TextView
         android:id="@+id/user_status2"
@@ -263,7 +263,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/starttime" />
+        app:layout_constraintTop_toBottomOf="@+id/starttime_editText" />
 
     <TextView
         android:id="@+id/user_status"
@@ -279,7 +279,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.657"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/starttime" />
+        app:layout_constraintTop_toBottomOf="@+id/starttime_editText" />
 
 
 </android.support.constraint.ConstraintLayout>

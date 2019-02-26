@@ -17,13 +17,13 @@ public class sendernotification extends AppCompatActivity {
         setContentView(R.layout.activity_sendernotification);
 
         invitation_status = findViewById(R.id.user_status);
-        reciver_place = findViewById(R.id.place);
+        reciver_place = findViewById(R.id.place_editText);
         fn = findViewById(R.id.firstname);
         ln = findViewById(R.id.lastname);
-        reciever_cusine = findViewById(R.id.cusinetype);
-        sender_numberofperson = findViewById(R.id.numberofperson);
+        reciever_cusine = findViewById(R.id.cusinetype_editText);
+        sender_numberofperson = findViewById(R.id.numberofperson_editText);
         reciever_enddate = findViewById(R.id.endtime2);
-        reciever_startdate = findViewById(R.id.starttime);
+        reciever_startdate = findViewById(R.id.starttime_editText);
         reciever_budget = findViewById(R.id.budget);
 
         Bundle bundle = getIntent().getExtras();
