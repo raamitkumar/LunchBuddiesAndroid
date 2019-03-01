@@ -3,8 +3,8 @@ package com.example.lunchbuddies;
 public class DataInfo {
 
     private static DataInfo datainfo=new DataInfo();
-    private int user_id;
-    private int post_id;
+    private int user_id=0;
+    private int post_id=0;
 
     public int getReciever_user_id() {
         return reciever_user_id;

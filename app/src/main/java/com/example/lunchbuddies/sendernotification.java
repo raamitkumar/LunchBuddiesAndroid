@@ -1,7 +1,10 @@
 package com.example.lunchbuddies;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class sendernotification extends AppCompatActivity {
@@ -10,13 +13,13 @@ public class sendernotification extends AppCompatActivity {
     double budget;
 
     TextView reciver_place, fn, ln, reciever_cusine, sender_numberofperson, reciever_startdate, reciever_enddate, reciever_budget, invitation_status;
-
+Button sendmessage;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sendernotification);
 
-        invitation_status = findViewById(R.id.user_status);
+        invitation_status = findViewById(R.id.messagedetail);
         reciver_place = findViewById(R.id.place_editText);
         fn = findViewById(R.id.firstname);
         ln = findViewById(R.id.lastname);
@@ -25,6 +28,8 @@ public class sendernotification extends AppCompatActivity {
         reciever_enddate = findViewById(R.id.endtime2);
         reciever_startdate = findViewById(R.id.starttime_editText);
         reciever_budget = findViewById(R.id.budget);
+
+        sendmessage=findViewById(R.id.button_message);
 
         Bundle bundle = getIntent().getExtras();
         firstname = bundle.getString("FIRSTNAME");
@@ -36,9 +41,9 @@ public class sendernotification extends AppCompatActivity {
         enddate = bundle.getString("ENDDATE");
         numberofperson = bundle.getInt("NUMBEROFPERSON");
         budget = bundle.getDouble("BUDGET");
-        user_status = bundle.getString("INVITATIONSTATUS");
+        user_status = bundle.getString("MESSAGE");
 
-        invitation_status.setText(firstname+" "+lastname +" "+ user_status + "ED THE INVITATION");
+        invitation_status.setText(user_status);
         reciever_budget.setText(budget + "");
         sender_numberofperson.setText(numberofperson + "");
         fn.setText(firstname);
@@ -47,6 +52,13 @@ public class sendernotification extends AppCompatActivity {
         reciever_startdate.setText(startdate);
         reciever_enddate.setText(enddate);
         reciever_cusine.setText(cusinetype);
+        sendmessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent bridge=new Intent(getApplicationContext(),History.class);
+                startActivity(bridge);
+            }
+        });
     }
 
 }

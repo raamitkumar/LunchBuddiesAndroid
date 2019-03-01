@@ -13,12 +13,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="124dp"
+        android:drawableRight="@drawable/emailclipart"
         android:ems="10"
         android:hint="EMAIL"
-        android:textColorHint="@android:color/background_dark"
-        android:drawableRight="@drawable/emailclipart"
         android:inputType="textPersonName"
         android:textColor="@android:color/background_dark"
+        android:textColorHint="@android:color/background_dark"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.171"
@@ -31,13 +31,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
+        android:drawableRight="@drawable/passwordclipart"
         android:ems="10"
-        android:textColorHint="@android:color/background_dark"
         android:hint="PASSWORD"
         android:inputType="textPassword"
         android:textColor="@android:color/background_dark"
 
-        android:drawableRight="@drawable/passwordclipart"
+        android:textColorHint="@android:color/background_dark"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.171"
@@ -79,6 +79,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/send_message"
         app:layout_constraintVertical_bias="0.19" />
+
+    <Button
+        android:id="@+id/guest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:text="Guest"
+        android:textColor="#F96C14"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.408"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.648" />
 
 
 </android.support.constraint.ConstraintLayout>

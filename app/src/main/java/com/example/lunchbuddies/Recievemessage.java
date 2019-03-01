@@ -61,7 +61,7 @@ public class Recievemessage extends AppCompatActivity {
 
     private class MyTask2 extends AsyncTask<Void, Void, Void> {
         int sender_id, post_id, reciever_id;
-        String firstname, lastname, message, cusinetype, startdate, enddate, invitationStatus;
+        String firstname, lastname, message, cusinetype, startdate, enddate, invitationStatus,the_place;
         int numberofperson;
 
 
@@ -128,21 +128,21 @@ public class Recievemessage extends AppCompatActivity {
                             tr = new TableRow(getApplicationContext());
 
                             thefirstname = new TextView(getApplicationContext());
-                            thefirstname.setText("RECIEVERFIRSTNAME  ");
+                            thefirstname.setText("SENDERFIRSTNAME  ");
                             thefirstname.setTextSize(20);
                             thefirstname.setTextColor(Color.BLACK);
                             thefirstname.setTypeface(null, Typeface.BOLD_ITALIC);
                             tr2.addView(thefirstname);
 
                             thelastname = new TextView(getApplicationContext());
-                            thelastname.setText("RECIEVERLASTNAME");
+                            thelastname.setText("SENDERLASTNAME");
                             thelastname.setTextSize(20);
                             thelastname.setTextColor(Color.BLACK);
                             thelastname.setTypeface(null, Typeface.BOLD_ITALIC);
                             tr2.addView(thelastname);
 
                             reciever_Message = new TextView(getApplicationContext());
-                            reciever_Message.setText("RECIEVER MESSAGE  ");
+                            reciever_Message.setText("SENDER MESSAGE  ");
                             reciever_Message.setTextSize(20);
                             reciever_Message.setTypeface(null, Typeface.BOLD_ITALIC);
                             reciever_Message.setTextColor(Color.BLACK);
@@ -163,7 +163,7 @@ public class Recievemessage extends AppCompatActivity {
                                     reciever_id = senderobject.getInt("RECIEVER_ID");
                                     sender_id = senderobject.getInt("Send_id");
 
-                                    if(reciever_id==sender_id){
+                                    if(reciever_id!=0){
                                     tr3 = new TableRow(getApplicationContext());
 
                                     tr = new TableRow(getApplicationContext());
@@ -176,6 +176,9 @@ public class Recievemessage extends AppCompatActivity {
                                     thefirstname.setText(firstname + " ");
                                     tr2.addView(thefirstname);
                                     thelastname = new TextView(getApplicationContext());
+
+                                    the_place=senderobject.getString("PLACE");
+
 
                                     thelastname.setTextSize(20);
                                     lastname = senderobject.getString("LASTNAME");
@@ -210,7 +213,7 @@ public class Recievemessage extends AppCompatActivity {
 
                                             bridge.putExtra("FIRSTNAME", firstname);
                                             bridge.putExtra("LASTNAME", lastname);
-                                            bridge.putExtra("PLACE", message);
+                                            bridge.putExtra("PLACE",the_place );
                                             bridge.putExtra("CUSINE", cusinetype);
                                             bridge.putExtra("BUDGET", budget);
                                             bridge.putExtra("NUMBEROFPERSON", numberofperson);
@@ -257,15 +260,15 @@ public class Recievemessage extends AppCompatActivity {
 
         }
     }
-
+    TableLayout tb;
     private class MyTask extends AsyncTask<Void, Void, Void> {
         int sender_id, post_id, reciever_id;
-        String firstname, lastname, message, cusinetype, startdate, enddate, invitationStatus,contactNumber;
+        String firstname, the_place,lastname, message, cusinetype, startdate, enddate, invitationStatus,contactNumber;
         int numberofperson;
 
 
         double budget;
-        TableLayout tb;
+
         TableRow tr,tr2,tr3;
 
         @SuppressLint("WrongThread")
@@ -280,7 +283,7 @@ public class Recievemessage extends AppCompatActivity {
 
             try {
 
-                url = new URL("http://192.168.0.107:8888/lunchbuddies/mobile/application/recievemessage&" + datainfo.getUser_id());
+                url = new URL("http://192.168.0.107:8888/lunchbuddies/mobile/application/viewsendedmessage&" + datainfo.getUser_id());
 
                 HttpURLConnection client = null;
 
@@ -386,6 +389,7 @@ public class Recievemessage extends AppCompatActivity {
                                         reciever_Message.setTextSize(20);
                                         tr3.addView(reciever_Message);
 
+
                                         cusinetype = senderobject.getString("CUSINETYPE");
                                         startdate = senderobject.getString("STARTTIME");
                                         enddate = senderobject.getString("ENDTIME");
@@ -393,6 +397,7 @@ public class Recievemessage extends AppCompatActivity {
                                         numberofperson = senderobject.getInt("NUMBEROFPERSON");
                                         contactNumber=senderobject.getString("CONTACTNUMBER");
 
+                                        the_place=senderobject.getString("PLACE");
                                         post_id = senderobject.getInt("POST_ID");
                                         //  tr3 = new TableRow(getApplicationContext());
 
@@ -410,7 +415,7 @@ public class Recievemessage extends AppCompatActivity {
 
                                                 bridge.putExtra("FIRSTNAME", firstname);
                                                 bridge.putExtra("LASTNAME", lastname);
-                                                bridge.putExtra("PLACE", message);
+                                                bridge.putExtra("PLACE", the_place);
                                                 bridge.putExtra("CUSINE", cusinetype);
                                                 bridge.putExtra("BUDGET", budget);
                                                 bridge.putExtra("NUMBEROFPERSON", numberofperson);

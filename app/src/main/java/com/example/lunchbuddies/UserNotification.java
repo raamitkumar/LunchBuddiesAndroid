@@ -35,13 +35,13 @@ public class UserNotification extends AppCompatActivity {
         setContentView(R.layout.activity_user_notification);
         accept=findViewById(R.id.statusaccept);
         reject=findViewById(R.id.statusreject);
-        status=findViewById(R.id.user_status);
+        status=findViewById(R.id.messagedetail);
         sender_place=findViewById(R.id.place_editText);
         fn=findViewById(R.id.firstname);
         ln=findViewById(R.id.lastname);
         sender_cusine=findViewById(R.id.cusinetype_editText);
         sender_numberofperson=findViewById(R.id.numberofperson_editText);
-        sender_enddate=findViewById(R.id.endtime);
+        sender_enddate=findViewById(R.id.endtime2);
         sender_startdate=findViewById(R.id.starttime_editText);
         sender_budget=findViewById(R.id.budget);
         sendMessage=findViewById(R.id.sendmessage);

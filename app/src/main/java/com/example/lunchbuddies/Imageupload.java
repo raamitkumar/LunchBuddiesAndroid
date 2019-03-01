@@ -122,8 +122,8 @@ public class Imageupload extends AppCompatActivity {
         Cursor cursor = getContentResolver().query(uri, projection, null, null, null);
         int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
         cursor.moveToFirst();
+        System.out.println(column_index);
         return cursor.getString(column_index);
-
 
     }
     private class UploadFileToServer extends AsyncTask<String, String, String> {

@@ -57,7 +57,7 @@ public class AddEvent extends AppCompatActivity {
         imageupload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent bridge=new Intent(getApplicationContext(),Imageupload.class);
+                Intent bridge=new Intent(getApplicationContext(),Picturetrail.class);
                 startActivity(bridge);
             }
         });

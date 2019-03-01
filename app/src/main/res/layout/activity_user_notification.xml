@@ -265,7 +265,7 @@
         app:layout_constraintTop_toBottomOf="@+id/starttime_editText" />
 
     <TextView
-        android:id="@+id/user_status"
+        android:id="@+id/messagedetail"
         android:layout_width="wrap_content"
         android:layout_height="22dp"
         android:layout_marginStart="8dp"
@@ -298,7 +298,7 @@
         app:layout_constraintEnd_toStartOf="@+id/statusreject"
         app:layout_constraintHorizontal_bias="0.093"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user_status"
+        app:layout_constraintTop_toBottomOf="@+id/messagedetail"
         app:layout_constraintVertical_bias="0.098" />
 
     <Button
@@ -315,23 +315,25 @@
         android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user_status"
+        app:layout_constraintTop_toBottomOf="@+id/messagedetail"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/sendmessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="124dp"
-        android:layout_marginBottom="136dp"
-        android:text="SEND MESSAGE" android:textColor="#F96C14"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="152dp"
 
-        android:textStyle="bold"
-        android:textSize="20sp"
+        android:layout_marginBottom="8dp"
         android:background="@android:color/transparent"
+        android:text="SEND MESSAGE"
+        android:textColor="#F96C14"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user_status"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/messagedetail" />
 </android.support.constraint.ConstraintLayout>

@@ -24,7 +24,7 @@ import java.net.URL;
 public class MainActivity extends AppCompatActivity {
 
     EditText userEmail,userPassword;
-    Button userLogin,singUp;
+    Button userLogin,singUp,guest;
     String email,password;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,12 +33,22 @@ public class MainActivity extends AppCompatActivity {
 
         Toast.makeText(getApplicationContext(), "PLEASE ENTER AND PASSWORD FOR LOGIN", Toast.LENGTH_LONG).show();
 
+        guest=findViewById(R.id.guest);
+
 
         userEmail = findViewById(R.id.email);
         userPassword = findViewById(R.id.send_message);
         userLogin = findViewById(R.id.login);
         singUp = findViewById(R.id.registration);
 
+        guest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent bridge=new Intent(getApplicationContext(),Guestlist.class);
+                startActivity(bridge
+                );
+            }
+        });
 
         singUp.setOnClickListener(new View.OnClickListener() {
             @Override

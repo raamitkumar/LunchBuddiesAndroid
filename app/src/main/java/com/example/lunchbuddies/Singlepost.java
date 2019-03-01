@@ -37,6 +37,7 @@ public class Singlepost extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         post_id = bundle.getInt("postid");
 
+        final DataInfo info=DataInfo.getInstance();
         theplace = findViewById(R.id.place_editText);
         thecusine = findViewById(R.id.cusinetype_editText);
         starttime = findViewById(R.id.starttime_editText);
@@ -47,11 +48,18 @@ public class Singlepost extends AppCompatActivity {
         sendmessage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent bridge=new Intent(getApplicationContext(),History.class);
+                if (info.getUser_id() != 0) {
+                    Intent bridge = new Intent(getApplicationContext(), History.class);
 
-                startActivity(bridge);
-            }
-        });
+                    startActivity(bridge);
+                } else {
+                    Intent bridge = new Intent(getApplicationContext(), CustomDialogbox.class);
+
+                    startActivity(bridge);
+
+                }
+
+            }});
 
         sendinvitation = findViewById(R.id.sendinvitation);
 
@@ -240,9 +248,10 @@ int reciever_user_id=datainfo.getReciever_user_id();
                 System.out.println(response.toString());
 
                 JSONObject obj = new JSONObject(response.toString());
-
-                user_status=obj.getString("Status");
-//
+if(datainfo.getUser_id()!=0) {
+    user_status = obj.getString("Status");
+}
+                //
 //
 
 
@@ -265,19 +274,24 @@ int reciever_user_id=datainfo.getReciever_user_id();
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
+            if (datainfo.getUser_id()!=0) {
+                if (user_status.equals("OK")) {
+                    Intent bridge = new Intent(getApplicationContext(), Listofpost.class);
+                    Toast.makeText(getApplicationContext(), "Your invitation is successfully send", Toast.LENGTH_SHORT).show();
 
-            if(user_status.equals("OK")){
-                Intent bridge=new Intent(getApplicationContext(),Listofpost.class);
-                Toast.makeText(getApplicationContext(), "Your invitation is successfully send", Toast.LENGTH_SHORT).show();
+                    startActivity(bridge);
+
+                } else {
+
+                    Toast.makeText(getApplicationContext(), "Some information went wrong", Toast.LENGTH_SHORT).show();
+                }
+            }
+            else{
+                Intent bridge = new Intent(getApplicationContext(), CustomDialogbox.class);
 
                 startActivity(bridge);
-
-            }else{
-
-                Toast.makeText(getApplicationContext(),"Some information went wrong",Toast.LENGTH_SHORT).show();
             }
         }
-
 
     }
 }
