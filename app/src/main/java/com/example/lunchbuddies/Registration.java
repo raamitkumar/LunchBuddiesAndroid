@@ -107,7 +107,7 @@ public class Registration extends AppCompatActivity {
 
             try {
 
-                url = new URL("http://192.168.0.107:8888/lunchbuddies/mobile/application/registration&"
+                url = new URL("http://172.24.13.33:8080/lunchbuddies/mobile/application/registration&"
                         + fName + "&" + lName + "&" + useremail + "&" + contactNumber + "&" + uPassword);
 
                 HttpURLConnection client = null;

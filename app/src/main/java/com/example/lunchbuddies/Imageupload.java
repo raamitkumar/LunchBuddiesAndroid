@@ -234,7 +234,7 @@ public class Imageupload extends AppCompatActivity implements View.OnClickListen
                 fulluid=datainfo.getUser_id();
 
                 System.out.println(fulluid);
-                url = new URL("http://172.24.208.170:8888/lunchbuddies/mobile/application/addphotos&"+getPath()+"&"+1
+                url = new URL("http://172.24.13.33:8080/lunchbuddies/mobile/application/addphotos&"+getPath()+"&"+1
                        );
 
                 HttpURLConnection client = null;

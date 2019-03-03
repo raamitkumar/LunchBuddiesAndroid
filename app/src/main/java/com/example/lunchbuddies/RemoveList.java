@@ -71,7 +71,7 @@ int eventId;
 
             try {
 
-                url = new URL("http://172.24.208.170:8888/lunchbuddies/mobile/application/viewEvent");
+                url = new URL("http://172.24.13.33:8080/lunchbuddies/mobile/application/viewEvent");
 
                 HttpURLConnection client = null;
 

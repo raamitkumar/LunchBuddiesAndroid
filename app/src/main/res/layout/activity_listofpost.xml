@@ -12,7 +12,7 @@
     <TableLayout
         android:id="@+id/tblayout"
         android:layout_width="395dp"
-        android:layout_height="566dp"
+        android:layout_height="466dp"
         android:alpha="0.9"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -148,11 +148,29 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/tblayout"
-        app:layout_constraintEnd_toStartOf="@+id/signout"
+        app:layout_constraintEnd_toStartOf="@+id/eventview"
         app:layout_constraintHorizontal_bias="0.909"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editpost"
         app:layout_constraintVertical_bias="0.486" />
+
+    <Button
+        android:id="@+id/eventview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="520dp"
+
+        android:background="@android:color/transparent"
+        android:text="Event View"
+        android:textColor="#F96C14"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signout"
+        app:layout_constraintVertical_bias="0.24000001" />
 
 
 </android.support.constraint.ConstraintLayout>

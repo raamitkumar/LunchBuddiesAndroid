@@ -128,7 +128,7 @@
         android:id="@+id/home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
+        android:background="@android:color/transparent"
         android:text="HOME"
         android:textColor="#F96C14"
     android:textSize="20sp"

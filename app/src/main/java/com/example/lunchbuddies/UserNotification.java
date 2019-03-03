@@ -121,7 +121,7 @@ private class MyTask extends AsyncTask<Void, Void, Void> {
         post_id=datainfo.getPost_id();
         try {
 
-            url = new URL("http://172.24.208.170:8888/lunchbuddies/mobile/application/recieveinvitation&"
+            url = new URL("http://172.24.13.33:8080/lunchbuddies/mobile/application/recieveinvitation&"
                     +  user_status+ "&" + datetime + "&" +sender_id  + "&" + reciever_id + "&" +post_id);
 
             HttpURLConnection client = null;
@@ -197,7 +197,7 @@ private class MyTask extends AsyncTask<Void, Void, Void> {
             post_id=datainfo.getPost_id();
             try {
 
-                url = new URL("http://172.24.208.170:8888/lunchbuddies/mobile/application/sendmessage&"
+                url = new URL("http://172.24.13.33:8080/lunchbuddies/mobile/application/sendmessage&"
                         +  user_status+ "&" + datetime + "&" +sender_id  + "&" + reciever_id + "&" +post_id);
 
                 HttpURLConnection client = null;

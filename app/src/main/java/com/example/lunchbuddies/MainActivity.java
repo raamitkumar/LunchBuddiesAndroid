@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
 
                 try {
 
-                    url = new URL("http://192.168.0.107:8888/lunchbuddies/mobile/application/login&" + email  + "&" + password );
+                    url = new URL("http://172.24.13.33:8080/lunchbuddies/mobile/application/login&" + email  + "&" + password );
 
                     HttpURLConnection client = null;
 

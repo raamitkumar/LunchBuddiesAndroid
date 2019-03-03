@@ -116,7 +116,7 @@ public class Adminpanel extends AppCompatActivity {
 
             try {
 
-                url = new URL("http://192.168.0.107:8888/lunchbuddies/mobile/application/RemoveUser&"+removeUser
+                url = new URL("http://172.24.13.33:8080/lunchbuddies/mobile/application/RemoveUser&"+removeUser
                         );
 
                 HttpURLConnection client = null;

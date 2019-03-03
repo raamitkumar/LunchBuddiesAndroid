@@ -63,7 +63,7 @@ public class AddEvent extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_event);
 
-        imageupload=findViewById(R.id.imageupload);
+        //imageupload=findViewById(R.id.imageupload);
         name=findViewById(R.id.eventname);
         place=findViewById(R.id.eventplace);
         startdate=findViewById(R.id.eventstartdate);
@@ -83,14 +83,14 @@ public class AddEvent extends AppCompatActivity {
                 new MyTask2().execute();
             }
         });
-
-        imageupload.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent bridge=new Intent(getApplicationContext(),Imageupload.class);
-                startActivity(bridge);
-            }
-        });
+//
+//        imageupload.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent bridge=new Intent(getApplicationContext(),Imageupload.class);
+//                startActivity(bridge);
+//            }
+//        });
 
         user_signout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -158,7 +158,7 @@ public class AddEvent extends AppCompatActivity {
                 fulluid=datainfo.getUser_id();
 
                 System.out.println(fulluid);
-                url = new URL("http://172.24.208.170:8888/lunchbuddies/mobile/application/addevent&"
+                url = new URL("http://172.24.13.33:8080/lunchbuddies/mobile/application/addevent&"
                         + event_name + "&" + event_place + "&" + event_startdate + "&" + event_end_date+"&"+fulluid);
 
                 HttpURLConnection client = null;
@@ -376,7 +376,7 @@ public class AddEvent extends AppCompatActivity {
                 fulluid=datainfo.getUser_id();
 
                 System.out.println(fulluid);
-                url = new URL("http://172.24.208.170:8888/lunchbuddies/mobile/application/addphotos&"+getPath()+"&"+1
+                url = new URL("http://172.24.13.33:8080/lunchbuddies/mobile/application/addphotos&"+getPath()+"&"+1
                 );
 
                 HttpURLConnection client = null;

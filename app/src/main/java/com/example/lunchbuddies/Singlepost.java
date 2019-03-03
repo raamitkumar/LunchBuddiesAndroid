@@ -131,7 +131,7 @@ public class Singlepost extends AppCompatActivity {
 
             try {
 
-                url = new URL("http://172.24.208.170:8888/lunchbuddies/mobile/application/viewpost&" + getPost_id());
+                url = new URL("http://172.24.13.33:8080/lunchbuddies/mobile/application/viewpost&" + getPost_id());
 
                 HttpURLConnection client = null;
 
@@ -234,7 +234,7 @@ public class Singlepost extends AppCompatActivity {
             System.out.println(datetime);
             try {
 
-                url = new URL("http://172.24.208.170:8888/lunchbuddies/mobile/application/sendinvitation&" + datetime + "&" + user_id +
+                url = new URL("http://172.24.13.33:8080/lunchbuddies/mobile/application/sendinvitation&" + datetime + "&" + user_id +
                         "&" + reciever_user_id + "&" + datainfo.getPost_id());
 
                 HttpURLConnection client = null;

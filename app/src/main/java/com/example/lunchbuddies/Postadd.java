@@ -118,6 +118,7 @@ public class Postadd extends AppCompatActivity {
                 }else{
                     startdate.setText("");
 
+                    Toast.makeText(getApplicationContext(),"your start and end Date are past Dates...please donot enter the past dates",Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -141,7 +142,7 @@ public class Postadd extends AppCompatActivity {
             try {
                 uid = datainfo.getUser_id();
 
-                url = new URL("http://172.24.208.170:8888/lunchbuddies/mobile/application/postinfo&"
+                url = new URL("http://172.24.13.33:8080/lunchbuddies/mobile/application/postinfo&"
                         + post_place + "&" + post_numberofperson +
                         "&" + post_budget + "&" + post_cusine + "&" + post_startdate + "&" + post_enddate + "&" + uid);
 

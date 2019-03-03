@@ -31,7 +31,7 @@ public class Recievemessage extends AppCompatActivity {
 
     Button recieve_Message, send_Message,home;
     TextView thefirstname,thelastname,reciever_Message;
-    TableLayout tb2;
+    TableLayout tb2,tb;
     TableRow tr,tr2,tr3;
 
 
@@ -53,11 +53,12 @@ public class Recievemessage extends AppCompatActivity {
         send_Message = findViewById(R.id.send);
         Button user_signout=findViewById(R.id.signout);
         tb2 = findViewById(R.id.tblayout);
+        tb = findViewById(R.id.tblayout2);
         recieve_Message.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                tb2.removeAllViews();
+                tb.removeAllViews();
                 new MyTask2().execute();
             }
         });
@@ -103,7 +104,7 @@ public class Recievemessage extends AppCompatActivity {
 
             try {
 
-                url = new URL("http://172.24.208.170:8888/lunchbuddies/mobile/application/recievemessage&" + datainfo.getUser_id());
+                url = new URL("http://172.24.13.33:8080/lunchbuddies/mobile/application/recievemessage&" + datainfo.getUser_id());
 
                 HttpURLConnection client = null;
 
@@ -281,7 +282,7 @@ public class Recievemessage extends AppCompatActivity {
 
         }
     }
-    TableLayout tb;
+
     private class MyTask extends AsyncTask<Void, Void, Void> {
         int sender_id, post_id, reciever_id;
         String firstname, the_place,lastname, message, cusinetype, startdate, enddate, invitationStatus,contactNumber;
@@ -298,13 +299,13 @@ public class Recievemessage extends AppCompatActivity {
         protected Void doInBackground(Void... params) {
             final DataInfo datainfo = DataInfo.getInstance();
             System.out.println(datainfo.getUser_id());
-            tb = findViewById(R.id.tblayout2);
+
 
             URL url = null;
 
             try {
 
-                url = new URL("http://172.24.208.170:8888/lunchbuddies/mobile/application/viewsendedmessage&" + datainfo.getUser_id());
+                url = new URL("http://172.24.13.33:8080/lunchbuddies/mobile/application/viewsendedmessage&" + datainfo.getUser_id());
 
                 HttpURLConnection client = null;
 

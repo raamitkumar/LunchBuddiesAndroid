@@ -73,7 +73,7 @@ public class Editpost extends AppCompatActivity {
 
             try {
 
-                url = new URL("http://172.24.208.170:8888/lunchbuddies/mobile/application/view_post&"+datainfo.getUser_id());
+                url = new URL("http://172.24.13.33:8080/lunchbuddies/mobile/application/view_post&"+datainfo.getUser_id());
 
                 HttpURLConnection client = null;
 

@@ -64,7 +64,7 @@ public class Guestlist extends AppCompatActivity {
 
             try {
 
-                url = new URL("http://172.24.208.170:8888/lunchbuddies/mobile/application/viewpost");
+                url = new URL("http://172.24.13.33:8080/lunchbuddies/mobile/application/viewpost");
 
                 HttpURLConnection client = null;
 

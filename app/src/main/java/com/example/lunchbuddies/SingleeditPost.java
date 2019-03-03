@@ -147,7 +147,7 @@ public class SingleeditPost extends AppCompatActivity {
 
             try {
 
-                url = new URL("http://172.24.208.170:8888/lunchbuddies/mobile/application/editpost&"+post_id+"&"
+                url = new URL("http://172.24.13.33:8080/lunchbuddies/mobile/application/editpost&"+post_id+"&"
                         + place + "&" + numberofperson + "&" + post_budget+ "&" + post_cusinetype + "&" + startdate
                         +"&"+enddate);
 
