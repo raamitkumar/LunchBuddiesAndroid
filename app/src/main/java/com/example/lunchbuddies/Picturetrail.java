@@ -12,215 +12,107 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
+import java.net.ProtocolException;
 import java.net.URL;
 
 public class Picturetrail extends AppCompatActivity {
-    EditText category,description;
-    Button uploadbtn,submitbtn;
-    String cate,desc;
+   Button imageviewbutton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_picturetrail);
 
 
-//        category=findViewById(R.id.et1);
-//        description=findViewById(R.id.et2);
-
-        uploadbtn=findViewById(R.id.btn2);
-        submitbtn = findViewById(R.id.btn);
-        uploadbtn.setOnClickListener(new View.OnClickListener() {
+        imageviewbutton=findViewById(R.id.imageviewbtn);
+        imageviewbutton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
-
-                Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-                intent.addCategory(Intent.CATEGORY_OPENABLE);
-                intent.setType("*/*");
-                startActivityForResult(intent, 42);
-
+            public void onClick(View view) {
+                new MyTask().execute();
             }
         });
 
-        submitbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-//                cate=category.getText().toString();
-//                desc=description.getText().toString();
-                new DownloadFilesTask(uri).execute();
-
-            }
-        });
-    }
-
-    Uri uri = null;
-    @Override
-    public void onActivityResult(int requestCode, int resultCode,
-                                 Intent resultData) {
-
-
-        if (requestCode == 42 && resultCode == Activity.RESULT_OK) {
-
-
-            if (resultData != null) {
-                uri = resultData.getData();
-                System.out.println(" UUU "+uri.toString());
-
-
-            }
-        }
     }
 
 
-    private class DownloadFilesTask extends AsyncTask<URL, Integer, Long> {
 
-        Uri sourceFileUri = null;
+    private class MyTask extends AsyncTask<Void, Void, Void> {
 
-        DownloadFilesTask(Uri uri) {
-            sourceFileUri = uri;
-        }
+        @Override
 
-
-        protected Long doInBackground(URL... urls) {
-            HttpURLConnection conn = null;
-            DataOutputStream dos = null;
-            String lineEnd = "\r\n";
-            String twoHyphens = "--";
-            String boundary = "*****";
-            int bytesRead, bytesAvailable, bufferSize;
-            byte[] buffer;
-            int maxBufferSize = 1 * 1024 * 1024;
-
-            File sourceFile = new File(sourceFileUri.toString());
-
-            if (false) {
+        protected Void doInBackground(Void... params) {
 
 
-                Log.e("uploadFile", "Source File not exist");
-
-                return 0L;
-
-            } else {
-                try {
+            DataInfo datainfo=DataInfo.getInstance();
 
 
-                    InputStream fileInputStream = getContentResolver().openInputStream(sourceFileUri);
-                    URL url = new URL("http://192.168.0.107:8888/lunchbuddies/mobile/application/addphotos&"+uri+"&"+1);
+            URL url = null;
 
+            try {
 
-                    System.out.println(url.toString());
-                    conn = (HttpURLConnection) url.openConnection();
-                    conn.setDoInput(true);
-                    conn.setDoOutput(true);
-                    conn.setUseCaches(false);
-                    conn.setRequestMethod("POST");
-                    conn.setRequestProperty("Connection", "Keep-Alive");
-                    conn.setRequestProperty("ENCTYPE", "multipart/form-data");
-                    conn.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + boundary);
-                    conn.setRequestProperty("file", sourceFileUri.getPath());
+                url = new URL("http://172.24.208.170:8888/lunchbuddies/mobile/application/viewphotos&"+2000);
 
-                    dos = new DataOutputStream(conn.getOutputStream());
+                HttpURLConnection client = null;
 
-                    dos.writeBytes(twoHyphens + boundary + lineEnd);
-                    dos.writeBytes("Content-Disposition: form-data; name=\"file\";filename=\"" + sourceFile.getName() + "\"" + lineEnd);
+                client = (HttpURLConnection) url.openConnection();
 
-                    dos.writeBytes(lineEnd);
+                client.setRequestMethod("GET");
 
+                int responseCode = client.getResponseCode();
 
-                    bytesAvailable = fileInputStream.available();
+                System.out.println("\n Sending 'GET' request to URL : " + url);
 
-                    bufferSize = Math.min(bytesAvailable, maxBufferSize);
-                    buffer = new byte[bufferSize];
+                System.out.println("Response Code : " + responseCode);
 
+                InputStreamReader myInput = new InputStreamReader(client.getInputStream());
 
-                    bytesRead = fileInputStream.read(buffer, 0, bufferSize);
+                BufferedReader in = new BufferedReader(myInput);
+                String inputLine;
+                StringBuffer response = new StringBuffer();
 
-                    while (bytesRead > 0) {
-
-                        dos.write(buffer, 0, bufferSize);
-                        bytesAvailable = fileInputStream.available();
-                        bufferSize = Math.min(bytesAvailable, maxBufferSize);
-                        bytesRead = fileInputStream.read(buffer, 0, bufferSize);
-
-                    }
-
-
-                    dos.writeBytes(lineEnd);
-
-//                    String key = "category";
-//                    dos.writeBytes(twoHyphens + boundary + lineEnd);
-//                    dos.writeBytes("Content-Disposition: form-data; name=\"" + key + "\"" + lineEnd);
-//                    dos.writeBytes("Content-Type: text/plain" + lineEnd);
-//                    dos.writeBytes(lineEnd);
-//               //     dos.writeBytes(cate);
-//                    dos.writeBytes(lineEnd);
-
-//
-//                    key = "description";
-//                    dos.writeBytes(twoHyphens + boundary + lineEnd);
-//                    dos.writeBytes("Content-Disposition: form-data; name=\"" + key + "\"" + lineEnd);
-//                    dos.writeBytes("Content-Type: text/plain" + lineEnd);
-//                    dos.writeBytes(lineEnd);
-//                  //  dos.writeBytes(desc);
-//                    dos.writeBytes(lineEnd);
-
-
-                    dos.writeBytes(twoHyphens + boundary + twoHyphens + lineEnd);
-
-
-                    String serverResponseMessage = conn.getResponseMessage();
-
-                    Log.i("uploadFile", "HTTP Response is : "
-                            + serverResponseMessage + ": ");
-
-
-
-                    fileInputStream.close();
-                    dos.flush();
-                    dos.close();
-
-                } catch (MalformedURLException ex) {
-
-
-                    ex.printStackTrace();
-
-                    runOnUiThread(new Runnable() {
-                        public void run() {
-
-                            Toast.makeText(getApplicationContext(), "MalformedURLException",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                    });
-
-                    Log.e("Upload file to server", "error: " + ex.getMessage(), ex);
-                } catch (Exception e) {
-
-
-                    e.printStackTrace();
-
-                    runOnUiThread(new Runnable() {
-                        public void run() {
-
-                            Toast.makeText(Picturetrail.this, "Got Exception : see logcat ",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                    Log.e("Upload file to server", "Exception : "
-                            + e.getMessage(), e);
+                while ((inputLine = in.readLine()) != null) {
+                    response.append(inputLine);
                 }
+                in.close();
 
-                return 200L;
+                //print result
+                System.out.println(response.toString());
 
+                JSONObject obj = new JSONObject(response.toString());
+
+
+
+
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
 
+            return null;
 
         }
 
 
-    }}
+        @Override
+        protected void onPostExecute(Void result) {
+            super.onPostExecute(result);
+
+
+
+
+        }
+
+    }
+}

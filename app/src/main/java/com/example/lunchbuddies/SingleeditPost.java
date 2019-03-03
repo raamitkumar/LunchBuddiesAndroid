@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -41,9 +40,9 @@ public class SingleeditPost extends AppCompatActivity {
 
 
         theplace = findViewById(R.id.place_editText);
-        thecusine = findViewById(R.id.cusinetype_editText);
+        thecusine = findViewById(R.id.cusinetype3);
         starttime = findViewById(R.id.starttime_editText);
-        endtime = findViewById(R.id.endtime_editText);
+        endtime = findViewById(R.id.endtime2);
         thenumberofperson = findViewById(R.id.numberofperson_editText);
         thebudget = findViewById(R.id.budget3_editText);
         edit=findViewById(R.id.edit);
@@ -115,6 +114,15 @@ public class SingleeditPost extends AppCompatActivity {
 
             }
         });
+        Button user_signout=findViewById(R.id.signout);
+
+        user_signout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent bridge=new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(bridge);
+            }
+        });
 
     }
     private class MyTask extends AsyncTask<Void, Void, Void> {
@@ -139,7 +147,7 @@ public class SingleeditPost extends AppCompatActivity {
 
             try {
 
-                url = new URL("http://192.168.0.107:8888/lunchbuddies/mobile/application/editpost&"+post_id+"&"
+                url = new URL("http://172.24.208.170:8888/lunchbuddies/mobile/application/editpost&"+post_id+"&"
                         + place + "&" + numberofperson + "&" + post_budget+ "&" + post_cusinetype + "&" + startdate
                         +"&"+enddate);
 

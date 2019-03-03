@@ -8,6 +8,7 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -33,6 +34,16 @@ public class Removeuser extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_removeuser);
+
+        Button user_signout=findViewById(R.id.signout);
+
+        user_signout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent bridge=new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(bridge);
+            }
+        });
         new MyTask().execute();
     }
 int userId=0;
@@ -60,7 +71,7 @@ int userId=0;
 
             try {
 
-                url = new URL("http://192.168.0.107:8888/lunchbuddies/mobile/application/profile");
+                url = new URL("http://172.24.208.170:8888/lunchbuddies/mobile/application/profile");
 
                 HttpURLConnection client = null;
 
@@ -281,7 +292,7 @@ int userId=0;
 
             try {
 
-                url = new URL("http://192.168.0.107:8888/lunchbuddies/mobile/application/removeuser&" +userId );
+                url = new URL("http://172.24.208.170:8888/lunchbuddies/mobile/application/removeuser&" +userId );
 
                 HttpURLConnection client = null;
 

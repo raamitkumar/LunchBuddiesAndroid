@@ -23,12 +23,20 @@ Button sendmessage;
         reciver_place = findViewById(R.id.place_editText);
         fn = findViewById(R.id.firstname);
         ln = findViewById(R.id.lastname);
-        reciever_cusine = findViewById(R.id.cusinetype_editText);
+        reciever_cusine = findViewById(R.id.cusinetype3);
         sender_numberofperson = findViewById(R.id.numberofperson_editText);
         reciever_enddate = findViewById(R.id.endtime2);
         reciever_startdate = findViewById(R.id.starttime_editText);
         reciever_budget = findViewById(R.id.budget);
+        Button user_signout=findViewById(R.id.signout);
 
+        user_signout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent bridge=new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(bridge);
+            }
+        });
         sendmessage=findViewById(R.id.button_message);
 
         Bundle bundle = getIntent().getExtras();

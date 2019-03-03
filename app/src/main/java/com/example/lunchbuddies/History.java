@@ -41,6 +41,16 @@ public class History extends AppCompatActivity {
         System.out.println(datainfo.getReciever_user_id());
         message=findViewById(R.id.send_message);
         sendMessage=findViewById(R.id.sendmessage);
+        Button user_signout=findViewById(R.id.signout);
+
+
+        user_signout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent bridge=new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(bridge);
+            }
+        });
         sendMessage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,7 +82,7 @@ public class History extends AppCompatActivity {
             System.out.println(datetime);
             try {
 
-                url = new URL("http://192.168.0.107:8888/lunchbuddies/mobile/application/sendmessage&" +sender_messsage+"&"+sender_id+
+                url = new URL("http://172.24.208.170:8888/lunchbuddies/mobile/application/sendmessage&" +sender_messsage+"&"+sender_id+
                         "&"+recieveruser_id+"&"+datetime);
 
                 HttpURLConnection client = null;

@@ -29,8 +29,10 @@ import java.net.URL;
 public class Recievemessage extends AppCompatActivity {
 
 
-    Button recieve_Message, send_Message;
+    Button recieve_Message, send_Message,home;
     TextView thefirstname,thelastname,reciever_Message;
+    TableLayout tb2;
+    TableRow tr,tr2,tr3;
 
 
     @Override
@@ -38,14 +40,24 @@ public class Recievemessage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recievemessage);
 
-
+        home=findViewById(R.id.home);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent bridge=new Intent(getApplicationContext(),Listofpost.class);
+                startActivity(bridge);
+            }
+        });
 
         recieve_Message = findViewById(R.id.recieve);
         send_Message = findViewById(R.id.send);
-
+        Button user_signout=findViewById(R.id.signout);
+        tb2 = findViewById(R.id.tblayout);
         recieve_Message.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                tb2.removeAllViews();
                 new MyTask2().execute();
             }
         });
@@ -53,7 +65,17 @@ public class Recievemessage extends AppCompatActivity {
         send_Message.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                tb2.removeAllViews();
                 new MyTask().execute();
+            }
+        });
+
+        user_signout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent bridge=new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(bridge);
             }
         });
 
@@ -66,8 +88,7 @@ public class Recievemessage extends AppCompatActivity {
 
 
         double budget;
-        TableLayout tb2;
-        TableRow tr,tr2,tr3;
+
 
         @SuppressLint("WrongThread")
         @Override
@@ -76,13 +97,13 @@ public class Recievemessage extends AppCompatActivity {
             final DataInfo datainfo = DataInfo.getInstance();
             System.out.println(datainfo.getUser_id());
 
-            tb2 = findViewById(R.id.tblayout);
+
 
             URL url = null;
 
             try {
 
-                url = new URL("http://192.168.0.107:8888/lunchbuddies/mobile/application/recievemessage&" + datainfo.getUser_id());
+                url = new URL("http://172.24.208.170:8888/lunchbuddies/mobile/application/recievemessage&" + datainfo.getUser_id());
 
                 HttpURLConnection client = null;
 
@@ -283,7 +304,7 @@ public class Recievemessage extends AppCompatActivity {
 
             try {
 
-                url = new URL("http://192.168.0.107:8888/lunchbuddies/mobile/application/viewsendedmessage&" + datainfo.getUser_id());
+                url = new URL("http://172.24.208.170:8888/lunchbuddies/mobile/application/viewsendedmessage&" + datainfo.getUser_id());
 
                 HttpURLConnection client = null;
 
@@ -322,7 +343,6 @@ public class Recievemessage extends AppCompatActivity {
                         @Override
                         public void run() {
 
-                            tb.removeAllViews();
 
 
                             tr2 = new TableRow(getApplicationContext());

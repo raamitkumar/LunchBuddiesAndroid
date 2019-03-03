@@ -41,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
         userLogin = findViewById(R.id.login);
         singUp = findViewById(R.id.registration);
 
+
+
+
         guest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,6 +57,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent bridge = new Intent(getApplicationContext(), Registration.class);
+
+
+
                 startActivity(bridge);
             }
         });
@@ -169,7 +175,7 @@ public class MainActivity extends AppCompatActivity {
 
                 System.out.println("hyyyyyyyyyyyyyyyyyyyyyyyyyy"+getUser_status()+email);
 
-                if(email.equals("RAAMITKUMAR786@GMAIL.COM")) {
+                if(email.equals("RAAMITKUMAR786@GMAIL.COM")&&password.equals("GOSWAMI09")) {
 
                     Intent bridge = new Intent(getApplicationContext(), Adminpanel.class);
                     startActivity(bridge);

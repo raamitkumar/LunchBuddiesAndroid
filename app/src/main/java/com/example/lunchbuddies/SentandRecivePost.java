@@ -31,6 +31,7 @@ public class SentandRecivePost extends AppCompatActivity {
     TableLayout tbLayout,tbLayout2;
     TableRow tr1, tr2, tr3;
     TextView thePlace, cusineType, thefirstname, thelastname;
+    Button message,notificationuser,home;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +42,27 @@ public class SentandRecivePost extends AppCompatActivity {
         myprofile = findViewById(R.id.myprofile);
         sent = findViewById(R.id.sentpost);
         recieve = findViewById(R.id.recievepost);
+        Button user_signout=findViewById(R.id.signout);
+        home=findViewById(R.id.home);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent bridge=new Intent(getApplicationContext(),Listofpost.class);
+                startActivity(bridge);
+            }
+        });
 
+        message=findViewById(R.id.message);
+    message.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Intent bridge=new Intent(getApplicationContext(),Recievemessage.class);
+            startActivity(bridge);
+        }
+    });
+        tbLayout = findViewById(R.id.tblayout);
+
+        tbLayout2=findViewById(R.id.tblayout2);
         notification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,13 +70,19 @@ public class SentandRecivePost extends AppCompatActivity {
                 startActivity(bridge);
             }
         });
-        tbLayout = findViewById(R.id.tblayout);
 
-        tbLayout2=findViewById(R.id.tblayout2);
+        user_signout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent bridge=new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(bridge);
+            }
+        });
         recieve.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                tbLayout2.removeAllViews();
                 new MyTask().execute();
             }
 
@@ -64,6 +91,8 @@ public class SentandRecivePost extends AppCompatActivity {
         sent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                tbLayout.removeAllViews();
+
                 new MyTask2().execute();
             }
         });
@@ -87,7 +116,7 @@ public class SentandRecivePost extends AppCompatActivity {
 
             try {
 
-                url = new URL("http://192.168.0.107:8888/lunchbuddies/mobile/application/viewrecieverinvitation&" + datainfo.getUser_id());
+                url = new URL("http://172.24.208.170:8888/lunchbuddies/mobile/application/viewrecieverinvitation&" + datainfo.getUser_id());
 
                 HttpURLConnection client = null;
 
@@ -266,7 +295,7 @@ public class SentandRecivePost extends AppCompatActivity {
 
             try {
 
-                url = new URL("http://192.168.0.107:8888/lunchbuddies/mobile/application/viewsendedinvitation&" + datainfo.getUser_id());
+                url = new URL("http://172.24.208.170:8888/lunchbuddies/mobile/application/viewsendedinvitation&" + datainfo.getUser_id());
 
                 HttpURLConnection client = null;
 

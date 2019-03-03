@@ -21,5 +21,6 @@ ImageView imageview;
                 startActivity(bridge);
             }
         });
+
     }
 }

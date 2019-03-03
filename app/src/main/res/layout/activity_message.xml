@@ -84,7 +84,7 @@
         android:textColor="@android:color/background_dark"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/cusinetype_editText"
+        app:layout_constraintEnd_toStartOf="@+id/cusinetype3"
         app:layout_constraintHorizontal_bias="0.058"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/firstname" />
@@ -101,13 +101,13 @@
         android:textColor="@android:color/background_dark"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/cusinetype_editText"
+        app:layout_constraintEnd_toStartOf="@+id/cusinetype3"
         app:layout_constraintHorizontal_bias="0.053"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/firstname" />
 
     <TextView
-        android:id="@+id/cusinetype_editText"
+        android:id="@+id/cusinetype3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="84dp"
@@ -188,7 +188,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cusinetype_editText" />
+        app:layout_constraintTop_toBottomOf="@+id/cusinetype3" />
 
     <TextView
         android:id="@+id/endtime"
@@ -201,7 +201,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cusinetype_editText" />
+        app:layout_constraintTop_toBottomOf="@+id/cusinetype3" />
 
     <TextView
         android:id="@+id/endtime2"
@@ -214,7 +214,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cusinetype_editText" />
+        app:layout_constraintTop_toBottomOf="@+id/cusinetype3" />
 
     <TextView
         android:id="@+id/budget"
@@ -281,4 +281,22 @@
         app:layout_constraintHorizontal_bias="0.657"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/starttime_editText" />
+
+    <Button
+        android:id="@+id/signout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+
+        android:background="@android:color/transparent"
+        android:text="Sign out"
+        android:textColor="#F96C14"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.029" />
 </android.support.constraint.ConstraintLayout>

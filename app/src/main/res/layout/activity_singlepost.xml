@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/trolls"
     android:alpha="0.9"
+    android:background="@drawable/trolls"
     tools:context=".Singlepost">
 
     <Button
         android:id="@+id/sendmessage"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="136dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="80dp"
 
         android:layout_marginEnd="32dp"
 
@@ -24,194 +24,254 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/endtime_editText"
-        app:layout_constraintVertical_bias="0.143" />
+        app:layout_constraintTop_toBottomOf="@+id/endtime2"
+        app:layout_constraintVertical_bias="0.142" />
 
-    <TextView
-        android:id="@+id/place_editText"
+
+    <Button
+        android:id="@+id/signout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
+
         android:layout_marginStart="8dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="@android:color/transparent"
+        android:text="Sign out"
+
+        android:textColor="#F96C14"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/place_editText"
+        android:layout_width="118dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:hint="PLACE"
         android:textAllCaps="true"
         android:textColor="#FF424242"
+
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/cusinetype_editText"
-        app:layout_constraintHorizontal_bias="0.395"
+        app:layout_constraintEnd_toStartOf="@+id/cusinetype3"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/place3" />
 
     <TextView
         android:id="@+id/place3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="88dp"
         android:layout_marginEnd="8dp"
         android:hint="PLACE"
         android:textAllCaps="true"
         android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/cusinetype_editText"
-        app:layout_constraintHorizontal_bias="0.395"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/cusinetype3"
+        android:layout_width="171dp"
+        android:layout_height="33dp"
+
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:hint="CUSINE TYPE"
+        android:textAllCaps="true"
+        android:textColor="@color/cardview_dark_background"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/place_editText"
+        app:layout_constraintTop_toBottomOf="@+id/cusinetype_editText" />
 
     <TextView
         android:id="@+id/cusinetype_editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
-        android:layout_marginEnd="48dp"
-        android:hint="CUSINE TYPE"
-        android:textAllCaps="true"
-        android:textStyle="bold"
-        android:textColor="@color/cardview_dark_background"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_width="234dp"
+        android:layout_height="35dp"
 
-    <TextView
-        android:id="@+id/cusinetype3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="60dp"
+        android:layout_marginTop="8dp"
         android:hint="CUSINE TYPE"
         android:textAllCaps="true"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/place3"
+        app:layout_constraintTop_toBottomOf="@+id/signout" />
 
-    <TextView
+    <EditText
         android:id="@+id/numberofperson_editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="216dp"
+        android:layout_height="32dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="8dp"
         android:hint="NUMBEROFPERSON"
         android:textAllCaps="true"
         android:textColor="#FF424242"
-        android:textStyle="bold"
         android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/starttime3"
+        app:layout_constraintEnd_toStartOf="@+id/budget3_editText"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/place_editText" />
+        app:layout_constraintTop_toBottomOf="@+id/numberofperson3" />
 
     <TextView
         android:id="@+id/numberofperson3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginEnd="8dp"
         android:hint="NUMBEROFPERSON"
         android:textAllCaps="true"
         android:textSize="24sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/numberofperson_editText"
+        app:layout_constraintEnd_toStartOf="@+id/budget"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/place_editText" />
 
-    <TextView
+    <EditText
         android:id="@+id/budget3_editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="48dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
         android:hint="BUDGET"
         android:textAllCaps="true"
         android:textColor="#FF424242"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/numberofperson_editText"
         app:layout_constraintTop_toBottomOf="@+id/budget" />
 
     <TextView
         android:id="@+id/budget"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="48dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
         android:hint="BUDGET"
         android:textAllCaps="true"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cusinetype_editText" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/numberofperson3"
+        app:layout_constraintTop_toBottomOf="@+id/cusinetype3" />
 
-    <TextView
+    <EditText
         android:id="@+id/starttime_editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:hint="STARTTIME"
         android:textAllCaps="true"
         android:textColor="#FF424242"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/endtime_editText"
-        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintBottom_toTopOf="@+id/end_time_editText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/numberofperson_editText" />
+        app:layout_constraintTop_toBottomOf="@+id/starttime3" />
 
     <TextView
         android:id="@+id/starttime3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:hint="STARTTIME"
         android:textAllCaps="true"
         android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/endtime_editText"
-        app:layout_constraintHorizontal_bias="0.439"
+        app:layout_constraintBottom_toTopOf="@+id/starttime_editText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/numberofperson_editText" />
+        app:layout_constraintTop_toBottomOf="@+id/budget3_editText" />
 
-    <TextView
-        android:id="@+id/endtime_editText"
+    <EditText
+        android:id="@+id/endtime2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:hint="ENDTIME"
         android:textAllCaps="true"
         android:textColor="#FF424242"
         android:textSize="24sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/edit"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/end_time2" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/end_time_editText" />
 
     <TextView
-        android:id="@+id/end_time2"
+        android:id="@+id/end_time_editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:hint="ENDTIME"
         android:textAllCaps="true"
         android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/endtime2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/budget3_editText" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/starttime_editText" />
 
     <Button
         android:id="@+id/sendinvitation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
 
-        android:layout_marginEnd="89dp"
+        android:layout_marginTop="8dp"
         android:background="@android:color/transparent"
         android:text="SEND REQUEST"
         android:textColor="#F96C14"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/send"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/starttime_editText"
-        app:layout_constraintVertical_bias="0.507" />
+        app:layout_constraintTop_toBottomOf="@+id/endtime2" />
+
+    <Button
+        android:id="@+id/home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="HOME"
+        android:textColor="#F96C14"
+    android:textSize="20sp"
+    android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.099"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
 </android.support.constraint.ConstraintLayout>

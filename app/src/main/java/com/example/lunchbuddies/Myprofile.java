@@ -35,7 +35,15 @@ public class Myprofile extends AppCompatActivity {
         user_edit=findViewById(R.id.editprofile);
         user_notification=findViewById(R.id.notification);
         user_history=findViewById(R.id.history);
+        Button user_signout=findViewById(R.id.signout);
 
+        user_signout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent bridge=new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(bridge);
+            }
+        });
         user_edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -100,7 +108,7 @@ public class Myprofile extends AppCompatActivity {
 
             try {
 
-                url = new URL("http://192.168.0.107:8888/lunchbuddies/mobile/application/myprofile&"+ fulluid);
+                url = new URL("http://172.24.208.170:8888/lunchbuddies/mobile/application/myprofile&"+ fulluid);
 
                 HttpURLConnection client = null;
 

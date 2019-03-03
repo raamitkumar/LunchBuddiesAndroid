@@ -8,6 +8,7 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -35,6 +36,14 @@ public class RemoveList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_remove_list);
         new MyTask().execute();
+        Button user_signout=findViewById(R.id.signout);
+        user_signout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent bridge=new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(bridge);
+            }
+        });
     }
 int eventId;
 
@@ -62,7 +71,7 @@ int eventId;
 
             try {
 
-                url = new URL("http://192.168.0.107:8888/lunchbuddies/mobile/application/viewEvent");
+                url = new URL("http://172.24.208.170:8888/lunchbuddies/mobile/application/viewEvent");
 
                 HttpURLConnection client = null;
 
@@ -280,7 +289,7 @@ int eventId;
 
             try {
 
-                url = new URL("http://192.168.0.107:8888/lunchbuddies/mobile/application/RemoveEvent&" +eventId );
+                url = new URL("http://172.24.208.170:8888/lunchbuddies/mobile/application/RemoveEvent&" +eventId );
 
                 HttpURLConnection client = null;
 

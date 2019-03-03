@@ -8,6 +8,7 @@
     android:alpha="0.9"
     tools:context=".Registration">
 
+
     <EditText
         android:id="@+id/firstname"
         android:layout_width="wrap_content"

@@ -39,7 +39,7 @@ public class UserNotification extends AppCompatActivity {
         sender_place=findViewById(R.id.place_editText);
         fn=findViewById(R.id.firstname);
         ln=findViewById(R.id.lastname);
-        sender_cusine=findViewById(R.id.cusinetype_editText);
+        sender_cusine=findViewById(R.id.cusinetype3);
         sender_numberofperson=findViewById(R.id.numberofperson_editText);
         sender_enddate=findViewById(R.id.endtime2);
         sender_startdate=findViewById(R.id.starttime_editText);
@@ -91,6 +91,14 @@ public class UserNotification extends AppCompatActivity {
                         new MyTask().execute();
                     }
                 });
+        Button user_signout=findViewById(R.id.signout);
+        user_signout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent bridge=new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(bridge);
+            }
+        });
     }
 
 
@@ -113,7 +121,7 @@ private class MyTask extends AsyncTask<Void, Void, Void> {
         post_id=datainfo.getPost_id();
         try {
 
-            url = new URL("http://192.168.0.107:8888/lunchbuddies/mobile/application/recieveinvitation&"
+            url = new URL("http://172.24.208.170:8888/lunchbuddies/mobile/application/recieveinvitation&"
                     +  user_status+ "&" + datetime + "&" +sender_id  + "&" + reciever_id + "&" +post_id);
 
             HttpURLConnection client = null;
@@ -189,7 +197,7 @@ private class MyTask extends AsyncTask<Void, Void, Void> {
             post_id=datainfo.getPost_id();
             try {
 
-                url = new URL("http://192.168.0.107:8888/lunchbuddies/mobile/application/sendmessage&"
+                url = new URL("http://172.24.208.170:8888/lunchbuddies/mobile/application/sendmessage&"
                         +  user_status+ "&" + datetime + "&" +sender_id  + "&" + reciever_id + "&" +post_id);
 
                 HttpURLConnection client = null;

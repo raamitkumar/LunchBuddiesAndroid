@@ -10,6 +10,7 @@ import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -37,6 +38,14 @@ public class Editpost extends AppCompatActivity {
         setContentView(R.layout.activity_editpost);
         Toast.makeText(getApplicationContext(), "PLEASE SELECT OF THE ITEM OF LIST VIEW TO EDIT YOUR POST", Toast.LENGTH_LONG).show();
 
+        Button user_signout=findViewById(R.id.signout);
+        user_signout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent bridge=new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(bridge);
+            }
+        });
         new MyTask().execute();
     }
    @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
@@ -64,7 +73,7 @@ public class Editpost extends AppCompatActivity {
 
             try {
 
-                url = new URL("http://192.168.0.107:8888/lunchbuddies/mobile/application/view_post&"+datainfo.getUser_id());
+                url = new URL("http://172.24.208.170:8888/lunchbuddies/mobile/application/view_post&"+datainfo.getUser_id());
 
                 HttpURLConnection client = null;
 

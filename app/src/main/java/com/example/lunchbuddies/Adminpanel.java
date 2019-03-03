@@ -36,6 +36,15 @@ public class Adminpanel extends AppCompatActivity {
         adduser=findViewById(R.id.adduser);
 
         postRemove=findViewById(R.id.removepost);
+        Button user_signout=findViewById(R.id.signout);
+
+        user_signout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent bridge=new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(bridge);
+            }
+        });
         postRemove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

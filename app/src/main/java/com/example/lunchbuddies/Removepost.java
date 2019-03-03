@@ -8,6 +8,7 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -33,6 +34,14 @@ int postId;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_removepost);
+        Button user_signout=findViewById(R.id.signout);
+        user_signout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent bridge=new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(bridge);
+            }
+        });
         new MyTask().execute();
     }
 
@@ -47,6 +56,7 @@ int postId;
         String startdatetime = dateformat.format(c.getTime());
         String enddatetime = dateformat.format(c.getTime());
 
+
         @SuppressLint("WrongThread")
         @Override
 
@@ -60,7 +70,7 @@ int postId;
 
             try {
 
-                url = new URL("http://192.168.0.107:8888/lunchbuddies/mobile/application/viewpost");
+                url = new URL("http://172.24.208.170:8888/lunchbuddies/mobile/application/viewpost");
 
                 HttpURLConnection client = null;
 
@@ -285,7 +295,7 @@ int postId;
 
             try {
 
-                url = new URL("http://192.168.0.107:8888/lunchbuddies/mobile/application/removepost&" +postId );
+                url = new URL("http://172.24.208.170:8888/lunchbuddies/mobile/application/removepost&" +postId );
 
                 HttpURLConnection client = null;
 

@@ -1,7 +1,10 @@
 package com.example.lunchbuddies;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class Message extends AppCompatActivity {
@@ -20,11 +23,12 @@ public class Message extends AppCompatActivity {
         reciver_place = findViewById(R.id.place_editText);
         fn = findViewById(R.id.firstname);
         ln = findViewById(R.id.lastname);
-        reciever_cusine = findViewById(R.id.cusinetype_editText);
+        reciever_cusine = findViewById(R.id.cusinetype3);
         sender_numberofperson = findViewById(R.id.numberofperson_editText);
         reciever_enddate = findViewById(R.id.endtime2);
         reciever_startdate = findViewById(R.id.starttime_editText);
         reciever_budget = findViewById(R.id.budget);
+        Button user_signout=findViewById(R.id.signout);
 
         Bundle bundle = getIntent().getExtras();
         firstname = bundle.getString("FIRSTNAME");
@@ -37,5 +41,14 @@ public class Message extends AppCompatActivity {
         numberofperson = bundle.getInt("NUMBEROFPERSON");
         budget = bundle.getDouble("BUDGET");
         user_status = bundle.getString("MESSAGE");
+
+
+        user_signout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent bridge=new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(bridge);
+            }
+        });
     }
 }

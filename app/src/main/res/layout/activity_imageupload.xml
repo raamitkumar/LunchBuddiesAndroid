@@ -11,36 +11,34 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <ImageView
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/imageview"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:src="@drawable/passwordclipart"
-            />
+            android:id="@+id/imgView"
+            android:layout_width="388dp"
+            android:layout_height="547dp"
+            android:layout_weight="1" />
 
         <Button
-            android:id="@+id/button_selectpic"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="wrap_content"
+            android:id="@+id/btn"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:text="Select Image"
-            android:textColor="@color/cardview_dark_background"
-            android:textSize="19dp"
-            android:textStyle="bold" />
+            android:text="Select Image" />
 
         <Button
-            android:id="@+id/button_upload"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="wrap_content"
+            android:id="@+id/upload"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Upload Image"
-            android:textColor="@color/cardview_dark_background"
-            android:textSize="19dp"
-            android:textStyle="bold" />
+            android:layout_weight="1"
+            android:text="Upload Image" />
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="match_parent"
+            android:layout_height="12dp"
+            android:layout_weight="1"
+            android:text="BACK" />
+
     </LinearLayout>
 
 </LinearLayout>

@@ -27,7 +27,7 @@ public class Singlepost extends AppCompatActivity {
     int post_id = 0;
 
     TextView theplace, thecusine, starttime, endtime, thenumberofperson, thebudget;
-    Button sendinvitation,sendmessage;
+    Button sendinvitation,sendmessage,home;
 
     DataInfo datainfo=DataInfo.getInstance();
     @Override
@@ -36,12 +36,19 @@ public class Singlepost extends AppCompatActivity {
         setContentView(R.layout.activity_singlepost);
         Bundle bundle = getIntent().getExtras();
         post_id = bundle.getInt("postid");
-
+        home=findViewById(R.id.home);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent bridge=new Intent(getApplicationContext(),Listofpost.class);
+                startActivity(bridge);
+            }
+        });
         final DataInfo info=DataInfo.getInstance();
         theplace = findViewById(R.id.place_editText);
-        thecusine = findViewById(R.id.cusinetype_editText);
+        thecusine = findViewById(R.id.cusinetype3);
         starttime = findViewById(R.id.starttime_editText);
-        endtime = findViewById(R.id.endtime_editText);
+        endtime = findViewById(R.id.endtime2);
         thenumberofperson = findViewById(R.id.numberofperson_editText);
         thebudget = findViewById(R.id.budget3_editText);
         sendmessage=findViewById(R.id.sendmessage);
@@ -82,7 +89,15 @@ public class Singlepost extends AppCompatActivity {
                 }
             }
         });
+        Button user_signout=findViewById(R.id.signout);
 
+        user_signout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent bridge=new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(bridge);
+            }
+        });
         System.out.println(post_id);
         setPost_id(post_id);
         new MyTask().execute();
@@ -116,7 +131,7 @@ public class Singlepost extends AppCompatActivity {
 
             try {
 
-                url = new URL("http://192.168.0.107:8888/lunchbuddies/mobile/application/viewpost&" + getPost_id());
+                url = new URL("http://172.24.208.170:8888/lunchbuddies/mobile/application/viewpost&" + getPost_id());
 
                 HttpURLConnection client = null;
 
@@ -201,14 +216,15 @@ public class Singlepost extends AppCompatActivity {
     private class MyTask2 extends AsyncTask<Void, Void, Void> {
 
 
-String user_status;
+        String user_status;
+
         @SuppressLint("WrongThread")
         @Override
 
         protected Void doInBackground(Void... params) {
 
-int user_id=datainfo.getUser_id();
-int reciever_user_id=datainfo.getReciever_user_id();
+            int user_id = datainfo.getUser_id();
+            int reciever_user_id = datainfo.getReciever_user_id();
 
             URL url = null;
 
@@ -218,8 +234,8 @@ int reciever_user_id=datainfo.getReciever_user_id();
             System.out.println(datetime);
             try {
 
-                url = new URL("http://192.168.0.107:8888/lunchbuddies/mobile/application/sendinvitation&" + datetime+"&"+user_id+
-                        "&"+reciever_user_id+"&"+datainfo.getPost_id());
+                url = new URL("http://172.24.208.170:8888/lunchbuddies/mobile/application/sendinvitation&" + datetime + "&" + user_id +
+                        "&" + reciever_user_id + "&" + datainfo.getPost_id());
 
                 HttpURLConnection client = null;
 
@@ -248,9 +264,9 @@ int reciever_user_id=datainfo.getReciever_user_id();
                 System.out.println(response.toString());
 
                 JSONObject obj = new JSONObject(response.toString());
-if(datainfo.getUser_id()!=0) {
-    user_status = obj.getString("Status");
-}
+                if (datainfo.getUser_id() != 0) {
+                    user_status = obj.getString("Status");
+                }
                 //
 //
 
@@ -274,24 +290,30 @@ if(datainfo.getUser_id()!=0) {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-            if (datainfo.getUser_id()!=0) {
-                if (user_status.equals("OK")) {
-                    Intent bridge = new Intent(getApplicationContext(), Listofpost.class);
-                    Toast.makeText(getApplicationContext(), "Your invitation is successfully send", Toast.LENGTH_SHORT).show();
 
-                    startActivity(bridge);
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
 
-                } else {
+                    if (datainfo.getUser_id() != 0) {
+                        if (user_status.equals("OK")) {
+                            Intent bridge = new Intent(getApplicationContext(), Listofpost.class);
+                            Toast.makeText(getApplicationContext(), "Your invitation is successfully send", Toast.LENGTH_SHORT).show();
 
-                    Toast.makeText(getApplicationContext(), "Some information went wrong", Toast.LENGTH_SHORT).show();
+                            startActivity(bridge);
+
+                        } else {
+
+                            Toast.makeText(getApplicationContext(), "Some information went wrong", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Intent bridge = new Intent(getApplicationContext(), CustomDialogbox.class);
+
+                        startActivity(bridge);
+                    }
+
                 }
-            }
-            else{
-                Intent bridge = new Intent(getApplicationContext(), CustomDialogbox.class);
+            });
 
-                startActivity(bridge);
-            }
         }
-
-    }
-}
+    }}

@@ -74,23 +74,85 @@
         app:layout_constraintVertical_bias="0.023" />
 
     <Button
+        android:id="@+id/signout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:text="Sign out"
+        android:textColor="#F96C14"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.887"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/postadd"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
         android:id="@+id/myprofile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:text="MyProfile" android:textColor="#F96C14"
-
-        android:textStyle="bold"
-        android:textSize="20sp"
         android:background="@android:color/transparent"
+        android:text="MyProfile"
+
+        android:textColor="#F96C14"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.916"
+        app:layout_constraintHorizontal_bias="0.524"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.125" />
+        app:layout_constraintVertical_bias="0.023" />
 
+    <Button
+        android:id="@+id/cegep"
+        android:layout_width="wrap_content"
 
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@android:color/transparent"
+        android:text="CEGEP Post"
+        android:textColor="#F96C14"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tblayout"
+        app:layout_constraintEnd_toStartOf="@+id/signout"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editpost"
+        app:layout_constraintVertical_bias="0.486" />
+
+    <Button
+        android:id="@+id/allpost"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@android:color/transparent"
+        android:text="ALL Post"
+        android:textColor="#F96C14"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tblayout"
+        app:layout_constraintEnd_toStartOf="@+id/signout"
+        app:layout_constraintHorizontal_bias="0.909"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editpost"
+        app:layout_constraintVertical_bias="0.486" />
 
 
 </android.support.constraint.ConstraintLayout>

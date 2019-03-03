@@ -33,8 +33,17 @@ public class RemoveEvent extends AppCompatActivity {
         event_name=findViewById(R.id.eventname);
         event_place=findViewById(R.id.eventplace);
         event_date=findViewById(R.id.startdate);
+        Button user_signout=findViewById(R.id.signout);
 
         removeevent=findViewById(R.id.removeevent);
+
+        user_signout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent bridge=new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(bridge);
+            }
+        });
         removeevent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -80,7 +89,7 @@ public class RemoveEvent extends AppCompatActivity {
 
         try {
 
-            url = new URL("http://192.168.0.107:8888/lunchbuddies/mobile/application/RemoveEvent&" + ename  + "&" + eplace+"&"+edate );
+            url = new URL("http://172.24.208.170:8888/lunchbuddies/mobile/application/RemoveEvent&" + ename  + "&" + eplace+"&"+edate );
 
             HttpURLConnection client = null;
 

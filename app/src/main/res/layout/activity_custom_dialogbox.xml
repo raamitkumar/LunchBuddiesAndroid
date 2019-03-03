@@ -16,7 +16,7 @@
         android:layout_alignParentTop="true"
 
 
-        android:drawableLeft="@drawable/stopclicpart"
+        android:drawableRight="@drawable/stopclicpart"
         android:text="Alert Please Login or Register"
         android:textSize="18sp"
         android:textStyle="normal|bold"

@@ -14,7 +14,7 @@ public class CustomDialogbox extends AppCompatActivity {
 
 
         Intent bridge=new Intent(getApplicationContext(),MainActivity.class);
-        Toast.makeText(getApplicationContext(), "Please Register OR Login", Toast.LENGTH_LONG).show();
+       // Toast.makeText(getApplicationContext(), "Please Register OR Login", Toast.LENGTH_LONG).show();
         startActivity(bridge);
     }
 }

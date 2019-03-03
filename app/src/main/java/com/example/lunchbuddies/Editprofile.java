@@ -42,6 +42,15 @@ public class Editprofile extends AppCompatActivity {
         Toast.makeText(getApplicationContext(),"PLEASE ENTER THE INFORMATION FOR EDIT YOUR PROFILE",Toast.LENGTH_LONG).show();
 
         useredit = findViewById(R.id.edit);
+        Button user_signout=findViewById(R.id.signout);
+
+        user_signout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent bridge=new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(bridge);
+            }
+        });
 
         final DataInfo datainfo=DataInfo.getInstance();
         useredit.setOnClickListener(new View.OnClickListener() {
@@ -110,7 +119,7 @@ public class Editprofile extends AppCompatActivity {
 
             try {
 
-                url = new URL("http://192.168.0.107:8888/lunchbuddies/mobile/application/editprofile&"+user_id+"&"
+                url = new URL("http://172.24.208.170:8888/lunchbuddies/mobile/application/editprofile&"+user_id+"&"
                         + fName + "&" + lName + "&" + useremail+ "&" + uPassword + "&" + contactNumber );
 
                 HttpURLConnection client = null;

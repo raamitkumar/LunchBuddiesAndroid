@@ -22,18 +22,22 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="397dp"
+        android:layout_width="336dp"
         android:layout_height="371dp"
         android:autoSizeTextType="uniform"
-        android:text="Lunch buddies app is all about inviting your friends on Lunch. All you have to decide a place and budget for the lunch and post details in the lunch buddies. Those who are intersted will send a Invitation to person who posted the post and the reciever can accept or reject the request
-        of other users. And if anybody have a Query regarding the event can ask question who posted the event"
-        android:textAlignment="viewStart"
+        android:justificationMode="none"
+        android:text="
+This app helps to connect, socialize, invite friends and buddies. Members and guest can use the service to
+ arrange the meeting and join events such as restaurants, parties, Cegep activities"
+        android:textAlignment="gravity"
         android:textAllCaps="true"
-        android:textSize="24sp"
+        android:textColor="#56FAEF"
+        android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.813" />
+        app:layout_constraintVertical_bias="0.591" />
 </android.support.constraint.ConstraintLayout>
